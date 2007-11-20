@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- MMF Project -->
+
+  <xs:element name="mmfproject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence maxOccurs="1">
+          <xs:element ref="project" />
+        </xs:sequence>
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element ref="settings" />
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+<!-- Settings -->
+
+  <xs:element name="settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="panels" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="panels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="panel" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="panel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="visible" />
+        <xs:element ref="placement" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="visible">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="placement">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+<!-- Project -->
+
+  <xs:element name="project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name" />
+        <xs:element ref="periods" />
+        <xs:element ref="interestrate" />
+        <xs:element ref="nextid" />
+        <xs:element ref="maxmmfs" />
+        <xs:element ref="categories" />
+        <xs:element ref="mmfs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="name">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="periods">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="interestrate">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="nextid">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="maxmmfs">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+<!-- Category -->
+
+  <xs:element name="categories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="category" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="category">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name" />
+        <xs:element ref="color" />
+        <xs:element ref="parent" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="color">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="parent">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+<!-- MMF -->
+
+  <xs:element name="mmfs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mmf" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="mmf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name" />
+        <xs:element ref="period" />
+        <xs:element ref="locked" />
+        <xs:element ref="swimlane" />
+        <xs:element ref="category_ref" />
+        <xs:element ref="precursors" />
+        <xs:element ref="revenues" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="period">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="locked">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="swimlane">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="category_ref">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="precursors">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+  <xs:element name="revenues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="revenue" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="revenue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="period" />
+        <xs:element ref="value" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="value">
+    <xs:complexType mixed="true" />
+  </xs:element>
+
+</xs:schema>
