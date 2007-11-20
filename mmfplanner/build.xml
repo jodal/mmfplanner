@@ -22,8 +22,8 @@
     <pathelement location="${lib.dir}/jcommon-1.0.10.jar" />
     <pathelement location="${lib.dir}/jfreechart-1.0.6.jar" />
     <pathelement location="${lib.dir}/junit-4.4.jar" />
-    <pathelement location="${lib.dir}/piccolo.jar" />
-    <pathelement location="${lib.dir}/piccolox.jar" />
+    <pathelement location="${lib.dir}/piccolo-1.2.jar" />
+    <pathelement location="${lib.dir}/piccolox-1.2.jar" />
     <pathelement location="${lib.dir}/swing-layout-1.0.2.jar" />
     <pathelement location="${lib.dir}/xom-1.1.jar" />
   </path>
