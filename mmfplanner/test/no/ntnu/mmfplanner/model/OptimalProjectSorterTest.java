@@ -3,7 +3,7 @@
  *
  * Created on 12. nov.. 2007, 09.35.53
  *
- * Version $Id: OptimalProjectSorterTest.java 1406 2007-11-17 14:44:28Z erikbagg $
+ * Version $Id: OptimalProjectSorterTest.java 1639 2007-11-20 16:50:30Z erikbagg $
  *
  * Copyright 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset
@@ -20,9 +20,9 @@ import no.ntnu.mmfplanner.model.ProjectSorter.Result;
 import org.junit.Test;
 
 /**
- * Test for {@link OptimalProjectSorter}
- *
- * @version $Revision: 1406 $
+ * TODO: Description of class and functionality.
+ * 
+ * @version $Revision: 1639 $
  * @author Snorre Gylterud
  * @author Stein Magnus Jodal
  * @author Johannes Knutsen
@@ -71,7 +71,7 @@ public class OptimalProjectSorterTest {
 
     /**
      * Compares a list of results with the expected sequences and npvs
-     *
+     * 
      * @param eseence
      * @param npv
      * @param results
@@ -82,13 +82,22 @@ public class OptimalProjectSorterTest {
         // run project sorter
         ProjectSorter sorter = runSorter();
 
+        // TODO: remove (debug info)
+        List<Result> results = sorter.getResults();
+        String debSeq = "", debNpv = "";
+        for (int i = 0; i < results.size(); i++) {
+            Result r = results.get(i);
+            debSeq += ",\"" + r.sequence + "\"";
+            debNpv += "," + r.npv;
+        }
+        System.out.println(debSeq + " ## " + debNpv);
+
         // basic checks
         assertTrue(sorter.isDone());
         assertEquals(project, sorter.getProject());
         assertEquals(progress, sorter.getProgress());
         assertEquals(progress, sorter.getProgressMax());
 
-        List<Result> results = sorter.getResults();        
         assertEquals(sequence.length, npv.length);
         assertEquals(sequence.length, results.size());
 
@@ -108,8 +117,8 @@ public class OptimalProjectSorterTest {
                 int p = (r.periods[j] > 0 ? r.periods[j] : maxPeriod);
                 project.get(j).setPeriod(p);
             }
-            ProjectRoi roi = ProjectRoi.getRoiTable(project, project.getInterestRate(),
-                    false);
+            ProjectRoi roi = ProjectRoi.getRoiTable(project, project
+                    .getInterestRate(), false);
             assertEquals(roi.presentValue[roi.presentValue.length - 1], r.npv,
                     npvDelta);
         }
@@ -166,9 +175,14 @@ public class OptimalProjectSorterTest {
         String expSeq[] = new String[] { "EDCAB", "EDCBA", "EDACB", "EDCB",
                 "EDBCA", "EDABC", "ECDAB", "EDBAC", "EDBC", "ECDBA", "EDCA",
                 "EADCB", "EDAC", "ECDB", "EDC", "EADBC", "ECADB", "EBDCA",
-                "ECDA", "ECBDA" };
+                "ECDA", "EACDB", "ECBDA", "EADC", "EBDAC", "EBDC", "DECAB",
+                "ECBD", "DECBA", "ECD", "DEACB", "ECABD", "EABDC", "EBCDA",
+                "ECAD", "DECB", "ECBAD", "AEDCB", "EBADC", "DEBCA", "EACBD",
+                "EBCD" };
         int expNpv[] = new int[] { 377, 376, 374, 372, 370, 368, 366, 366, 366,
-                365, 365, 364, 362, 361, 359, 358, 357, 356, 354, 353 };
+                365, 365, 364, 362, 361, 359, 358, 357, 356, 354, 353, 353,
+                352, 352, 352, 349, 349, 348, 348, 346, 346, 345, 345, 345,
+                344, 344, 343, 343, 342, 342, 341 };
         assertResults(326, expSeq, expNpv);
     }
 
@@ -185,9 +199,13 @@ public class OptimalProjectSorterTest {
         String expSeq[] = new String[] { "DABEC", "ABEDC", "ADBEC", "DCABE",
                 "ABECD", "DACBE", "DABCE", "ABDEC", "CDABE", "ADCBE", "CABED",
                 "ACBED", "DABE", "ADBCE", "CADBE", "ABED", "ACDBE", "ABCED",
-                "ADBE", "CABDE" };
+                "ADBE", "CABDE", "ABDCE", "ACBDE", "ABCDE", "ABDE", "ABEC",
+                "CABE", "ACBE", "ABCE", "DCAB", "DACB", "DABC", "CDAB", "DCA",
+                "ADCB", "DAC", "ABE", "ADBC", "CADB", "DC", "CDA" };
         int expNpv[] = new int[] { 306, 303, 294, 293, 292, 289, 283, 280, 280,
-                277, 277, 272, 272, 271, 271, 269, 266, 264, 260, 259 };
+                277, 277, 272, 272, 271, 271, 269, 266, 264, 260, 259, 257,
+                254, 246, 246, 245, 230, 225, 217, 215, 211, 205, 202, 202,
+                199, 198, 193, 193, 193, 193, 189 };
         assertResults(326, expSeq, expNpv);
     }
 

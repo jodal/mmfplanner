@@ -1,5 +1,5 @@
 /*
- * $Id: ProjectSorter.java 1403 2007-11-17 14:19:58Z erikbagg $
+ * $Id: ProjectSorter.java 1639 2007-11-20 16:50:30Z erikbagg $
  *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Abstract class for project sorters.
  *
- * @version $Revision: 1403 $
+ * @version $Revision: 1639 $
  * @author Snorre Gylterud
  * @author Stein Magnus Jodal
  * @author Johannes Knutsen
@@ -79,7 +79,7 @@ public abstract class ProjectSorter implements Runnable {
         }
     }
 
-    private static final int MAX_RESULTS = 20;
+    private static final int MAX_RESULTS = 40;
 
     private static final Comparator<? super Result> RESULT_COMPARATOR = new ResultComparator();
 
