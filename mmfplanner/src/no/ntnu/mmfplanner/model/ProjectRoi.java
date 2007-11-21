@@ -134,6 +134,8 @@ public class ProjectRoi {
         roi.presentValue = new int[periods + 1];
         roi.rollingNpv = new int[periods];
         double sumPV = 0.0;
+        int minPV = 1;
+        
         for (int p = 0; p < periods; p++) {
             // roi.cash
             int sum = 0;
@@ -156,7 +158,7 @@ public class ProjectRoi {
             roi.rollingNpv[p] = (int) Math.round(sumPV);
 
             // roi.selfFundingPeriod
-            if ((0 == roi.selfFundingPeriod) && (0 < roi.cash[p])) {
+            if (roi.rollingNpv[p] >= minPV) {
                 roi.selfFundingPeriod = p + 1;
             }
 
