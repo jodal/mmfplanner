@@ -32,11 +32,11 @@ import no.ntnu.mmfplanner.util.ProjectSorterUtil;
 public class SwimlaneSortAction extends MainAbstractAction {
     private static final long serialVersionUID = 1L;
 
-    public static final String ACTION_NAME = "Swimlane Sort";
+    public static final String ACTION_NAME = "Pretty Sort";
 
-    public static final int ACTION_KEY = KeyEvent.VK_S;
+    public static final int ACTION_KEY = KeyEvent.VK_R;
 
-    public static final String ACTION_DESCRIPTION = "Use swimlane sort algorithm to place the MMFs in a visually appealing way";
+    public static final String ACTION_DESCRIPTION = "Use pretty sort algorithm to place the MMFs in a visually appealing way";
 
     public SwimlaneSortAction(MainFrame mainFrame) {
         super(mainFrame, ACTION_NAME, ACTION_KEY, null, ACTION_DESCRIPTION);
