@@ -33,7 +33,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
  * Test for class {@link link no.ntnu.mmfplanner.util.XmlSerializer}.
- *
+ * 
  * @version $Revision: 1397 $
  * @author Snorre Gylterud
  * @author Stein Magnus Jodal
@@ -174,9 +174,9 @@ public class XmlSerializerTest extends ProjectTestFixture {
     public void testWriteProject() throws Exception {
         System.out.println("XmlSerializerTest.testWriteProject()");
 
-        String exp = "<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>\\s*<!DOCTYPE mmfproject SYSTEM \"mmfproject.dtd\">\\s*<mmfproject>\\s*<project>.+</project>\\s*<settings>.+</settings>\\s*</mmfproject>\\s*";
+        String exp = "<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>\\s*<!DOCTYPE mmfproject SYSTEM \"http://mmfplanner.googlecode.com/svn/dist/mmfproject.dtd\">\\s*<mmfproject>\\s*<project>.+</project>\\s*<settings>.+</settings>\\s*</mmfproject>\\s*";
         Pattern pexp = Pattern.compile(exp, Pattern.DOTALL);
-        int expSize = 3044;
+        int expSize = 3086;
 
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         XmlSerializer.writeWorkspace(placement, project, os);
@@ -205,7 +205,15 @@ public class XmlSerializerTest extends ProjectTestFixture {
         XmlSerializer.writeWorkspace(placement, project, os);
         ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
 
-        Builder parser = new Builder(true);
+        XMLReader xerces = XMLReaderFactory
+                .createXMLReader("com.sun.org.apache.xerces.internal.parsers.SAXParser");
+        xerces.setFeature("http://apache.org/xml/features/validation/schema",
+                true);
+        xerces.setProperty(
+                "http://java.sun.com/xml/jaxp/properties/schemaSource",
+                "mmfproject.schema");
+
+        Builder parser = new Builder(xerces, true);
         parser.build(is);
     }
 

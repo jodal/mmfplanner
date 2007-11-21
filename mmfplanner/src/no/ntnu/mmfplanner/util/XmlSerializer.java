@@ -21,14 +21,13 @@ import no.ntnu.mmfplanner.model.Project;
 import no.ntnu.mmfplanner.ui.TabPanePanelPlacement;
 import no.ntnu.mmfplanner.ui.TabPanePanelPlacement.PanelInfo;
 import nu.xom.Attribute;
-import nu.xom.DocType;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Serializer;
 
 /**
  * Utility class for serializing a MMF Project into an XML file.
- *
+ * 
  * @version $Revision: 1408 $
  * @author Snorre Gylterud
  * @author Stein Magnus Jodal
@@ -108,7 +107,7 @@ public class XmlSerializer {
 
     /**
      * Creates an element describing the given category.
-     *
+     * 
      * Id's are added to the category according to index in the given project,
      * this id is only valid in the context of the current version of the given
      * project, and can not be assumed to be valid in the future. If the
@@ -137,7 +136,7 @@ public class XmlSerializer {
 
     /**
      * Creates and returns an element describing the given mmf.
-     *
+     * 
      * For category an id is used corresponding to the categories index in the
      * given project, this id is only valid in the context of the current
      * version of the given project, and can not be assumed to be valid in the
@@ -178,9 +177,10 @@ public class XmlSerializer {
     /**
      * Converts the project to a XML Element and adds a XML Document as wrapper
      * around the element.
-     *
+     * 
      * @see #projectToElement()
-     * @param mainFrame.getProject() the project to create a document for
+     * @param mainFrame.getProject()
+     *            the project to create a document for
      * @return a XML Document element for the given project
      */
     public static Document workspaceToDocument(TabPanePanelPlacement placement,
@@ -197,16 +197,17 @@ public class XmlSerializer {
         Document doc = new Document(eprojects);
         // FIXME: should verify how to correctly validate the dtd on open, or
         // disable validation completely
-        DocType doctype = new DocType("mmfproject", "mmfproject.dtd");
-        doc.setDocType(doctype);
+        // DocType doctype = new DocType("mmfproject", "http://mmfplanner.googlecode.com/svn/dist/mmfproject.dtd");
+        // doc.setDocType(doctype);
         return doc;
     }
 
     /**
      * Writes the project to the given {@link OutputStream} in a nicely
      * formatted and valid XML-format, using UTF-8.
-     *
-     * @throws IOException if the underlying IO layer gives an error
+     * 
+     * @throws IOException
+     *             if the underlying IO layer gives an error
      * @see Serializer#write()
      */
     public static void writeWorkspace(TabPanePanelPlacement placement,
