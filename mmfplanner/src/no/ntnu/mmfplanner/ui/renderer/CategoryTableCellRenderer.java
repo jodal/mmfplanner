@@ -58,7 +58,9 @@ public class CategoryTableCellRenderer extends DefaultTableCellRenderer {
         }
         
         // Set white background color
-        setBackground(Color.WHITE);
+        if(!isSelected) {
+        	setBackground(Color.WHITE);
+        }
 
         // Last name column should have help text
         int nameColumn = ((CategoryTableModel) table.getModel()).findColumn(CategoryTableModel.COLUMN_NAME);
