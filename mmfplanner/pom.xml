@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>no.ntnu</groupId>
+	<artifactId>mmfplanner</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>MMF Planner</name>
+
+	<organization>
+		<name>MMF Planner project</name>
+		<url>http://code.google.com/p/mmfplanner</url>
+	</organization>
+
+       <repositories>
+                <repository>
+                        <id>mmfplanner.repo.lib</id>
+                        <url>file://${basedir}/repo</url>
+                </repository>
+        </repositories>
+
+	<dependencies>
+              	<dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <version>4.4</version>
+                        <scope>test</scope>
+                </dependency>
+		<dependency>
+                        <groupId>edu.umd.cs</groupId>
+                        <artifactId>piccolo</artifactId>
+                        <version>1.2</version>
+                </dependency>
+		<dependency>
+                        <groupId>edu.umd.cs</groupId>
+                        <artifactId>piccolox</artifactId>
+                        <version>1.2</version>
+                </dependency>
+		<dependency>
+                        <groupId>nu</groupId>
+                        <artifactId>xom</artifactId>
+                        <version>1.1</version>
+                </dependency>
+		<dependency>
+                        <groupId>org.jdesktop</groupId>
+                        <artifactId>layout</artifactId>
+                        <version>1.0.2</version>
+                </dependency>
+		<dependency>
+                        <groupId>org</groupId>
+                        <artifactId>jfree</artifactId>
+                        <version>1.0.6</version>
+                </dependency>
+		<dependency>
+                        <groupId>org</groupId>
+                        <artifactId>jcommon</artifactId>
+                        <version>1.0.6</version>
+                </dependency>
+
+
+
+	</dependencies>
+
+        <build>
+                <plugins>
+                        <!-- Tell Maven to compile our source code with Java version 1.5 -->
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-compiler-plugin</artifactId>
+                                <configuration>
+                                        <source>1.5</source>
+                                        <target>1.5</target>
+                                </configuration>
+                        </plugin>
+
+                        <plugin>
+                                <artifactId>maven-eclipse-plugin</artifactId>
+                                <configuration>
+                                        <downloadJavadocs>true</downloadJavadocs>
+                                </configuration>
+                        </plugin>
+                </plugins>
+        </build>
+
+</project>
