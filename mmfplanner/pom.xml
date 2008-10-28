@@ -38,24 +38,21 @@
                         <artifactId>piccolox</artifactId>
                         <version>1.2</version>
                 </dependency>
-
 		<dependency>
     			<groupId>xom</groupId>
     			<artifactId>xom</artifactId>
     			<version>1.1d2</version>
 		</dependency> 
-
 		<dependency>
-                        <groupId>org.jdesktop</groupId>
-                        <artifactId>layout</artifactId>
-                        <version>1.0.2</version>
-                </dependency>
+			<groupId>net.java.dev.swing-layout</groupId>
+			<artifactId>swing-layout</artifactId>
+			<version>1.0.2</version>
+		</dependency> 
 		<dependency>
 			<groupId>jfree</groupId>
 			<artifactId>jfreechart</artifactId>
 			<version>1.0.7</version>
 		</dependency> 
-
 	</dependencies>
 
         <build>
