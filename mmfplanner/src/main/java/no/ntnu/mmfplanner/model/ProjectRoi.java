@@ -158,7 +158,7 @@ public class ProjectRoi {
             roi.rollingNpv[p] = (int) Math.round(sumPV);
 
             // roi.selfFundingPeriod
-            System.out.println(p + ":" + minPV + ":" + sumPV);
+            //System.out.println(p + ":" + minPV + ":" + sumPV);
             if (sumPV <= minPV) {
                 minPV = roi.rollingNpv[p];
                 if (p + 1 < periods) {
