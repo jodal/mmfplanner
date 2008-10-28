@@ -46,8 +46,6 @@ public class AboutDialog extends javax.swing.JDialog {
 
         titleLabel = new javax.swing.JLabel();
         descLabel = new javax.swing.JLabel();
-        iterateLogoLabel = new javax.swing.JLabel();
-        ntnuLogoLabel = new javax.swing.JLabel();
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -60,16 +58,6 @@ public class AboutDialog extends javax.swing.JDialog {
 
         descLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24));
         descLabel.setText("MMF Planner");
-
-        iterateLogoLabel.setFocusable(false);
-        iterateLogoLabel.setMaximumSize(new java.awt.Dimension(100, 33));
-        iterateLogoLabel.setMinimumSize(new java.awt.Dimension(100, 33));
-        iterateLogoLabel.setPreferredSize(new java.awt.Dimension(100, 33));
-
-        ntnuLogoLabel.setFocusable(false);
-        ntnuLogoLabel.setMaximumSize(new java.awt.Dimension(100, 19));
-        ntnuLogoLabel.setMinimumSize(new java.awt.Dimension(100, 19));
-        ntnuLogoLabel.setPreferredSize(new java.awt.Dimension(100, 19));
 
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,17 +73,9 @@ public class AboutDialog extends javax.swing.JDialog {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(titleLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
                     .add(descLabel)
-                    .add(layout.createSequentialGroup()
-                        .add(titleLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 323, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(ntnuLogoLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(iterateLogoLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(378, Short.MAX_VALUE)
-                .add(closeButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, closeButton))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -104,14 +84,9 @@ public class AboutDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .add(descLabel)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(iterateLogoLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 33, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(ntnuLogoLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 19, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 92, Short.MAX_VALUE)
-                        .add(closeButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(titleLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
+                .add(titleLabel)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(closeButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -125,8 +100,6 @@ public class AboutDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JLabel descLabel;
-    private javax.swing.JLabel iterateLogoLabel;
-    private javax.swing.JLabel ntnuLogoLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 
