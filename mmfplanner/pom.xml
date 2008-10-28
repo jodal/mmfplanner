@@ -42,22 +42,21 @@
     			<groupId>xom</groupId>
     			<artifactId>xom</artifactId>
     			<version>1.1d2</version>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>net.java.dev.swing-layout</groupId>
 			<artifactId>swing-layout</artifactId>
 			<version>1.0.2</version>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>jfree</groupId>
 			<artifactId>jfreechart</artifactId>
 			<version>1.0.7</version>
-		</dependency> 
+		</dependency>
 	</dependencies>
 
         <build>
                 <plugins>
-                        <!-- Tell Maven to compile our source code with Java version 1.5 -->
                         <plugin>
                                 <groupId>org.apache.maven.plugins</groupId>
                                 <artifactId>maven-compiler-plugin</artifactId>
@@ -68,10 +67,41 @@
                         </plugin>
 
                         <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
                                 <artifactId>maven-eclipse-plugin</artifactId>
                                 <configuration>
                                         <downloadJavadocs>true</downloadJavadocs>
                                 </configuration>
+                        </plugin>
+
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-assembly-plugin</artifactId>
+
+                                <configuration>
+                                        <descriptorRefs>
+                                                <descriptorRef>
+                                                        jar-with-dependencies
+                                                </descriptorRef>
+                                        </descriptorRefs>
+                                        <archive>
+                                                <manifest>
+                                                        <mainClass>
+                                                                no.ntnu.mmfplanner.Main
+                                                        </mainClass>
+                                                </manifest>
+                                        </archive>
+                                </configuration>
+
+                                <executions>
+                                        <execution>
+                                                <id>mmfplanner-package-assembly</id>
+                                                <phase>package</phase>
+                                                <goals>
+                                                        <goal>attached</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
                         </plugin>
                 </plugins>
         </build>
