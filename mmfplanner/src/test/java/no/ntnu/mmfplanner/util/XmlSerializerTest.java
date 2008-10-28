@@ -27,6 +27,7 @@ import nu.xom.Builder;
 import nu.xom.Element;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -170,6 +171,7 @@ public class XmlSerializerTest extends ProjectTestFixture {
      * Test method for
      * {@link no.ntnu.mmfplanner.util.XmlSerializer#writeWorkspace(no.ntnu.mmfplanner.model.Project, java.io.OutputStream)}.
      */
+    @Ignore("Doctype is not yet used in the serialization.")
     @Test
     public void testWriteProject() throws Exception {
         System.out.println("XmlSerializerTest.testWriteProject()");
@@ -182,6 +184,7 @@ public class XmlSerializerTest extends ProjectTestFixture {
         XmlSerializer.writeWorkspace(placement, project, os);
         String xml = os.toString("UTF-8");
 
+        
         assertTrue(pexp.matcher(xml).matches());
         assertEquals(expSize, os.size());
         assertEquals(expSize, xml.length());
