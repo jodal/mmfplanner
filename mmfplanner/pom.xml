@@ -38,28 +38,23 @@
                         <artifactId>piccolox</artifactId>
                         <version>1.2</version>
                 </dependency>
+
 		<dependency>
-                        <groupId>nu</groupId>
-                        <artifactId>xom</artifactId>
-                        <version>1.1</version>
-                </dependency>
+    			<groupId>xom</groupId>
+    			<artifactId>xom</artifactId>
+    			<version>1.1d2</version>
+		</dependency> 
+
 		<dependency>
                         <groupId>org.jdesktop</groupId>
                         <artifactId>layout</artifactId>
                         <version>1.0.2</version>
                 </dependency>
 		<dependency>
-                        <groupId>org</groupId>
-                        <artifactId>jfree</artifactId>
-                        <version>1.0.6</version>
-                </dependency>
-		<dependency>
-                        <groupId>org</groupId>
-                        <artifactId>jcommon</artifactId>
-                        <version>1.0.6</version>
-                </dependency>
-
-
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<version>1.0.7</version>
+		</dependency> 
 
 	</dependencies>
 
