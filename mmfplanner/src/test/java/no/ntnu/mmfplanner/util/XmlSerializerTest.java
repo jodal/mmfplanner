@@ -13,6 +13,8 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.net.URL;
 import java.util.regex.Pattern;
 
 import javax.swing.JMenuItem;
@@ -189,9 +191,11 @@ public class XmlSerializerTest extends ProjectTestFixture {
                 .createXMLReader("com.sun.org.apache.xerces.internal.parsers.SAXParser");
         xerces.setFeature("http://apache.org/xml/features/validation/schema",
                 true);
+        URL schemaUrl = ClassLoader.getSystemResource("mmfproject.schema");
+        File schemaFile = new File(schemaUrl.getFile());
         xerces.setProperty(
                 "http://java.sun.com/xml/jaxp/properties/schemaSource",
-                "mmfproject.schema");
+                schemaFile);
 
         Builder parser = new Builder(xerces, true);
         parser.build(is);
@@ -207,9 +211,11 @@ public class XmlSerializerTest extends ProjectTestFixture {
                 .createXMLReader("com.sun.org.apache.xerces.internal.parsers.SAXParser");
         xerces.setFeature("http://apache.org/xml/features/validation/schema",
                 true);
+        URL schemaUrl = ClassLoader.getSystemResource("mmfproject.schema");
+        File schemaFile = new File(schemaUrl.getFile());
         xerces.setProperty(
                 "http://java.sun.com/xml/jaxp/properties/schemaSource",
-                "mmfproject.schema");
+                schemaFile);
 
         Builder parser = new Builder(xerces, true);
         parser.build(is);
