@@ -192,10 +192,9 @@ public class XmlSerializerTest extends ProjectTestFixture {
         xerces.setFeature("http://apache.org/xml/features/validation/schema",
                 true);
         URL schemaUrl = ClassLoader.getSystemResource("mmfproject.schema");
-        File schemaFile = new File(schemaUrl.getFile());
         xerces.setProperty(
                 "http://java.sun.com/xml/jaxp/properties/schemaSource",
-                schemaFile);
+                schemaUrl.getFile());
 
         Builder parser = new Builder(xerces, true);
         parser.build(is);
@@ -212,10 +211,9 @@ public class XmlSerializerTest extends ProjectTestFixture {
         xerces.setFeature("http://apache.org/xml/features/validation/schema",
                 true);
         URL schemaUrl = ClassLoader.getSystemResource("mmfproject.schema");
-        File schemaFile = new File(schemaUrl.getFile());
         xerces.setProperty(
                 "http://java.sun.com/xml/jaxp/properties/schemaSource",
-                schemaFile);
+                schemaUrl.getFile());
 
         Builder parser = new Builder(xerces, true);
         parser.build(is);
