@@ -81,15 +81,7 @@ public class OptimalProjectSorterTest {
             throws MmfException {
         // run project sorter
         ProjectSorter sorter = runSorter();
-
-        // TODO: remove (debug info)
         List<Result> results = sorter.getResults();
-        String debSeq = "", debNpv = "";
-        for (int i = 0; i < results.size(); i++) {
-            Result r = results.get(i);
-            debSeq += ",\"" + r.sequence + "\"";
-            debNpv += "," + r.npv;
-        }
 
         // basic checks
         assertTrue(sorter.isDone());
