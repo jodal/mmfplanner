@@ -38,8 +38,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void setId() throws MmfException {
-        System.out.println("MmfTest.setId()");
-
         assertEquals("A", mmfA.getId());
         mmfA.setId("C");
         assertEquals("C", mmfA.getId());
@@ -57,8 +55,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void setName() {
-        System.out.println("MmfTest.setName()");
-
         assertEquals("Test A", mmfA.getName());
         mmfA.setName("Test B");
         assertEquals("Test B", mmfA.getName());
@@ -69,8 +65,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void setPeriod() throws MmfException {
-        System.out.println("MmfTest.setPeriod()");
-
         assertEquals(2, mmfA.getPeriod());
         mmfA.setPeriod(5);
         assertEquals(5, mmfA.getPeriod());
@@ -87,8 +81,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void setLocked() throws MmfException {
-        System.out.println("MmfTest.setLocked()");
-
         assertEquals(true, mmfA.isLocked());
         mmfA.setLocked(true);
         assertEquals(true, mmfA.isLocked());
@@ -101,8 +93,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void setSwimlane() throws MmfException {
-        System.out.println("MmfTest.setSwimlane()");
-
         assertEquals(1, mmfA.getSwimlane());
         mmfA.setSwimlane(5);
         assertEquals(5, mmfA.getSwimlane());
@@ -119,8 +109,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void setPeriodCount() throws MmfException {
-        System.out.println("MmfTest.setPeriodCount()");
-
         assertEquals(1, mmfA.getPeriodCount());
         mmfA.setPeriodCount(3);
         assertEquals(3, mmfA.getPeriodCount());
@@ -137,8 +125,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void precursors() throws MmfException {
-        System.out.println("MmfTest.precursors()");
-
         assertEquals(0, mmfA.getPrecursors().size());
         assertEquals(1, mmfB.getPrecursors().size());
         mmfB.removePrecursor(mmfA);
@@ -189,14 +175,11 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void testToString() {
-        System.out.println("MmfTest.toString()");
-
         assertEquals("MMF A: Test A [2,1] > []", mmfA.toString());
     }
 
     @Test
     public void setCategory() throws MmfException {
-        System.out.println("MmfTest.setCategory()");
         assertEquals(null, mmfA.getCategory());
 
         mmfA.setCategory(category1);
@@ -217,7 +200,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void revenues() throws MmfException {
-        System.out.println("MmfTest.revenues()");
         assertEquals(15, mmfA.getRevenueLength());
 
         mmfA.setRevenue(1, 22);
@@ -241,8 +223,6 @@ public class MmfTest extends ProjectTestFixture {
 
     @Test
     public void getSaNpv() {
-        System.out.println("MmfTest.getSaNpv()");
-
         int npvs[] = new int[] { 1604, 1285, 986, 708, 486, 283, 101, -44,
                 -170, -277, -365, -182 };
 

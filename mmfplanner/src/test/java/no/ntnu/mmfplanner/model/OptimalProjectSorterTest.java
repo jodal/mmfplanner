@@ -90,7 +90,6 @@ public class OptimalProjectSorterTest {
             debSeq += ",\"" + r.sequence + "\"";
             debNpv += "," + r.npv;
         }
-        System.out.println(debSeq + " ## " + debNpv);
 
         // basic checks
         assertTrue(sorter.isDone());

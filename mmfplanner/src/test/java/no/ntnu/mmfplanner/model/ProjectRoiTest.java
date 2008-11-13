@@ -31,8 +31,6 @@ public class ProjectRoiTest extends ProjectTestFixture {
 
     @Test
     public void testGetRoiTable() throws MmfException {
-        System.out.println("ProjectRoiTest.testGetRoiTable()");
-
         int[][] inRevenue = new int[][] {
                 new int[] { -50, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
                         10, 10, 10, 10 },

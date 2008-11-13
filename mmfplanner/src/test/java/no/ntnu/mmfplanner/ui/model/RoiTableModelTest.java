@@ -43,8 +43,6 @@ public class RoiTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testIsCellEditable() {
-        System.out.println("RoiTableModelTest.testIsCellEditable()");
-
         for (int i = 0; i < 40; i++) {
             assertFalse(model.isCellEditable(i, i));
         }
@@ -52,8 +50,6 @@ public class RoiTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnCount() throws MmfException {
-        System.out.println("RoiTableModelTest.testGetColumnCount()");
-
         assertEquals(14, model.getColumnCount());
         project.setPeriods(63);
         assertEquals(65, model.getColumnCount());
@@ -63,8 +59,6 @@ public class RoiTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnNameInt() {
-        System.out.println("RoiTableModelTest.testGetColumnNameInt()");
-
         assertEquals(RoiTableModel.COLUMN_MMF, model.getColumnName(0));
 
         for (int i = 1; i < 13; i++) {
@@ -75,8 +69,6 @@ public class RoiTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetRowCount() {
-        System.out.println("RoiTableModelTest.testGetRowCount()");
-
         assertEquals(9, model.getRowCount());
         project.add(new Mmf("B", "Test B"));
         assertEquals(10, model.getRowCount());
@@ -88,8 +80,6 @@ public class RoiTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetValueAt() {
-        System.out.println("RoiTableModelTest.testGetValueAt()");
-
         // We only test values and rollingNpv. We already know ProjectRoi is
         // correct, so no need to test the actual values
         ProjectRoi roi = ProjectRoi.getRoiTable(project, project.getInterestRate(), false);
@@ -100,10 +90,7 @@ public class RoiTableModelTest extends ProjectTestFixture {
         for (int i = 0; i < roi.values.length; i++) {
             boolean isNull = true;
             for (int j = 0; j < roi.values[i].length; j++) {
-                // System.out.println(isNull);
-                // System.out.println(roi.values[i][j]);
                 isNull = isNull && (0 == roi.values[i][j]);
-                // System.out.println(isNull);
                 if (isNull) {
                     assertNull(model.getValueAt(i, j + 1));
                 } else {

@@ -42,8 +42,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testIsCellEditable() {
-        System.out.println("RevenueTableModelTest.testIsCellEditable()");
-
         assertFalse(model.isCellEditable(0, 0));
         for (int i = 1; i < 13; i++) {
             assertTrue(model.isCellEditable(i, i));
@@ -52,8 +50,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnCount() throws MmfException {
-        System.out.println("RevenueTableModelTest.testGetColumnCount()");
-
         assertEquals(13, model.getColumnCount());
         project.setPeriods(63);
         assertEquals(64, model.getColumnCount());
@@ -63,8 +59,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnNameInt() {
-        System.out.println("RevenueTableModelTest.testGetColumnNameInt()");
-
         assertEquals(RevenueTableModel.COLUMN_MMF, model.getColumnName(0));
         for (int i = 1; i < 13; i++) {
             assertEquals("+" + i, model.getColumnName(i));
@@ -73,8 +67,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetRowCount() {
-        System.out.println("RevenueTableModelTest.testGetRowCount()");
-
         assertEquals(2, model.getRowCount());
         project.add(new Mmf("C", "Test C"));
         assertEquals(3, model.getRowCount());
@@ -86,8 +78,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetValueAt() {
-        System.out.println("RevenueTableModelTest.testGetValueAt()");
-
         assertEquals("A: Test A", model.getValueAt(0, 0));
         for (int i = 1; i < 13; i++) {
             assertEquals(mmfA.getRevenue(i), model.getValueAt(0, i));
@@ -99,9 +89,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testSetValueAtObjectIntInt() {
-        System.out
-                .println("RevenueTableModelTest.testSetValueAtObjectIntInt()");
-
         model.setValueAt("T: T", 0, 0);
         assertEquals("A: Test A", model.getValueAt(0, 0));
 
@@ -114,8 +101,6 @@ public class RevenueTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnClassInt() {
-        System.out.println("RevenueTableModelTest.testGetColumnClassInt()");
-
         assertEquals(String.class, model.getColumnClass(0));
         for (int i = 1; i < 13; i++) {
             assertEquals(Integer.class, model.getColumnClass(i));

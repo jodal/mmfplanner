@@ -43,15 +43,11 @@ public class DeleteCategoryActionTest extends ActionTestFixture {
 
     @Test(expected = NullPointerException.class)
     public void testConstructWithNull() throws Exception {
-        System.out.println("DeleteCategoryActionTest.testConstructWithNull()");
-
         new DeleteCategoryAction(null);
     }
 
     @Test
     public void testActionPerformed() {
-        System.out.println("DeleteCategoryActionTest.testActionPerformed()");
-
         JTable table = mainFrame.getCategoryTable();
         assertEquals(2, project.getCategorySize());
 

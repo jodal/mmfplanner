@@ -39,8 +39,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void setName() {
-        System.out.println("ProjectTest.setName()");
-
         String name = "MMF Planner";
         project.setName(name);
         assertEquals(name, project.getName());
@@ -51,8 +49,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void setPeriods() throws MmfException {
-        System.out.println("ProjectTest.setPeriods()");
-
         int periods = 6;
         project.setPeriods(periods);
         assertEquals(periods, project.getPeriods());
@@ -62,8 +58,6 @@ public class ProjectTest extends ProjectTestFixture {
     }
     @Test
     public void setMaxMMFsPerPeriod() throws MmfException {
-        System.out.println("ProjectTest.setMaxMMFsperPeriod()");
-
         int maxMMFs = 6;
         project.setMaxMmfsPerPeriod(maxMMFs);
         assertEquals(maxMMFs, project.getMaxMmfsPerPeriod());
@@ -75,8 +69,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test (expected=MmfException.class)
     public void setMaxMMFsPerPeriodFault() throws MmfException {
-        System.out.println("ProjectTest.setMaxMMFsperPeriod()");
-
         int maxMMFs = -1;
         project.setMaxMmfsPerPeriod(maxMMFs);
         assertEquals(maxMMFs, project.getMaxMmfsPerPeriod());
@@ -85,8 +77,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void setInterestRate() {
-        System.out.println("ProjectTest.setInterestRate()");
-
         double interestRate = 0.025;
         project.setInterestRate(interestRate);
         assertEquals(interestRate, project.getInterestRate(), 0.0001);
@@ -97,8 +87,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void addCategory() {
-        System.out.println("ProjectTest.addCategory()");
-
         assertEquals(2, project.getCategorySize());
         Category category = new Category("Category 1", Color.RED, null);
         project.addCategory(category);
@@ -112,8 +100,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void removeCategory() {
-        System.out.println("ProjectTest.removeCategory()");
-
         assertEquals(2, project.getCategorySize());
         Category category = project.getCategory(project.getCategorySize() - 1);
         project.removeCategory(category);
@@ -125,8 +111,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void add() {
-        System.out.println("ProjectTest.add()");
-
         assertEquals(2, project.size());
         Mmf mmfC = new Mmf("C", "MMF C");
         project.add(mmfC);
@@ -146,8 +130,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void getNextId() {
-        System.out.println("ProjectTest.getNextId()");
-
         // we add D three times, first should be D, second C, third E
         testNewMmf("D", "D");
         testNewMmf("D", "C");
@@ -184,8 +166,6 @@ public class ProjectTest extends ProjectTestFixture {
     }
 
     private void testNewMmf(String id, String expected) {
-        System.out.println("ProjectTest.testNewMmf()");
-
         Mmf mmf = new Mmf(id, "Test " + id + "=>" + expected);
         project.add(mmf);
         assertEquals(expected, mmf.getId());
@@ -195,8 +175,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void remove() {
-        System.out.println("ProjectTest.remove()");
-
         // Test get-by-id
         assertEquals(2, project.size());
         Mmf mmf1 = project.get("A");
@@ -226,8 +204,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void testChangeListeners() {
-        System.out.println("ProjectTest.testChangeListeners()");
-
         assertEquals(0, propCount);
 
         Category c = project.getCategory(0);
@@ -268,8 +244,6 @@ public class ProjectTest extends ProjectTestFixture {
 
     @Test
     public void getSaNpvTable() {
-        System.out.println("ProjectTest.getSaNpvTable()");
-
         int[][] table = project.getSaNpvTable();
         assertEquals(2, table.length);
         assertEquals(12, table[0].length);

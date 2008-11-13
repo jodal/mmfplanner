@@ -53,8 +53,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testIsCellEditable() {
-        System.out.println("MmfTableModelTest.testIsCellEditable()");
-
         assertFalse(model.isCellEditable(0, 0));
         for (int i = 1; i < 5; i++) {
             assertTrue(model.isCellEditable(0, i));
@@ -71,8 +69,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetColumnCount() {
-        System.out.println("MmfTableModelTest.testGetColumnCount()");
-
         assertEquals(6, model.getColumnCount());
     }
 
@@ -82,8 +78,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetColumnNameInt() {
-        System.out.println("MmfTableModelTest.testGetColumnNameInt()");
-
         for (int i = 0; i < 6; i++) {
             assertEquals(MmfTableModel.COLUMNS[i], model.getColumnName(i));
         }
@@ -95,8 +89,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetRowCount() {
-        System.out.println("MmfTableModelTest.testGetRowCount()");
-
         assertEquals(3, model.getRowCount());
         project.add(new Mmf("C", "Test C"));
         assertEquals(4, model.getRowCount());
@@ -112,8 +104,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetValueAt() {
-        System.out.println("MmfTableModelTest.testGetValueAt()");
-
         assertEquals("A", model.getValueAt(0, 0));
         assertEquals("Test A", model.getValueAt(0, 1));
         mmfA.setName("Test AA");
@@ -140,8 +130,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testSetValueAtObjectIntInt() {
-        System.out.println("MmfTableModelTest.testSetValueAtObjectIntInt()");
-
         Mmf mmfC = new Mmf("C", "Test C");
         project.add(mmfC);
 
@@ -186,8 +174,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetColumnClassInt() {
-        System.out.println("MmfTableModelTest.testGetColumnClassInt()");
-
         assertEquals(String.class, model.getColumnClass(0));
         assertEquals(String.class, model.getColumnClass(1));
         assertEquals(Integer.class, model.getColumnClass(2));
@@ -204,8 +190,6 @@ public class MmfTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetColumnClassWhenEmpty() {
-        System.out.println("MmfTableModelTest.testGetColumnClassWhenEmpty()");
-
         project.remove(mmfA);
         project.remove(mmfB);
         for (int i = 0; i < 5; i++) {

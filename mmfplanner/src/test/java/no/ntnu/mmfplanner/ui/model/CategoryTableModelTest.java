@@ -31,8 +31,6 @@ public class CategoryTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testIsCellEditable() {
-        System.out.println("CategoryTableModelTest.testIsCellEditable()");
-
         for (int i = 0; i < testModel.getRowCount() - 1; i++) {
             assertEquals(true, testModel.isCellEditable(i, 0));
             assertEquals(true, testModel.isCellEditable(i, 1));
@@ -48,8 +46,6 @@ public class CategoryTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnNameInt() {
-        System.out.println("CategoryTableModelTest.testGetColumnNameInt()");
-
         assertEquals(CategoryTableModel.COLUMN_NAME, testModel.getColumnName(0));
         assertEquals(CategoryTableModel.COLUMN_COLOR, testModel
                 .getColumnName(1));
@@ -59,15 +55,11 @@ public class CategoryTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnCount() {
-        System.out.println("CategoryTableModelTest.testGetColumnCount()");
-
         assertEquals(3, testModel.getColumnCount());
     }
 
     @Test
     public void testGetRowCount() {
-        System.out.println("CategoryTableModelTest.testGetRowCount()");
-
         assertEquals(project.getCategorySize() + 1, testModel.getRowCount());
     }
 
@@ -77,8 +69,6 @@ public class CategoryTableModelTest extends ProjectTestFixture {
      */
     @Test
     public void testGetValueAt() {
-        System.out.println("CategoryTableModelTest.testGetValueAt()");
-
         assertEquals(null, testModel.getValueAt(testModel.getRowCount() - 1, 0));
         assertEquals(null, testModel.getValueAt(testModel.getRowCount() - 1, 1));
         assertEquals(null, testModel.getValueAt(testModel.getRowCount() - 1, 2));
@@ -86,8 +76,6 @@ public class CategoryTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testGetColumnClassInt() {
-        System.out.println("CategoryTableModelTest.testGetColumnClassInt()");
-
         assertEquals(project.getCategory(1).getName().getClass(), testModel
                 .getColumnClass(0));
         assertEquals(project.getCategory(1).getColor().getClass(), testModel
@@ -98,9 +86,6 @@ public class CategoryTableModelTest extends ProjectTestFixture {
 
     @Test
     public void testSetValueAtObjectIntInt() {
-        System.out
-                .println("CategoryTableModelTest.testSetValueAtObjectIntInt()");
-
         // Tests defaults values
         assertEquals("Online Travel Agency", testModel.getValueAt(0, 0));
         assertEquals(Color.RED, testModel.getValueAt(0, 1));

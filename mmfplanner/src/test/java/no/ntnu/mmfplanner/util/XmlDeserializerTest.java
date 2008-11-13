@@ -69,8 +69,6 @@ public class XmlDeserializerTest extends ProjectTestFixture {
      */
     @Test
     public void testReadProject() throws Exception {
-        System.out.println("XmlDeserializerTest.testReadProject()");
-
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         XmlSerializer.writeWorkspace(placement, project, os);
         ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
@@ -112,8 +110,6 @@ public class XmlDeserializerTest extends ProjectTestFixture {
      */
     @Test
     public void testElementToProject() throws MmfException {
-        System.out.println("XmlDeserializerTest.testElementToProject()");
-
         Element e = XmlSerializer.projectToElement(project);
         Project project2 = XmlDeserializer.elementToProject(e);
         assertEquals(project.getCategorySize(), project2.getCategorySize());
@@ -134,8 +130,6 @@ public class XmlDeserializerTest extends ProjectTestFixture {
      */
     @Test
     public void testElementToCategory() throws MmfException {
-        System.out.println("XmlDeserializerTest.testElementToCategory()");
-
         Element e = XmlSerializer.categoryToElement(project, category1);
         Category category12 = XmlDeserializer.elementToCategory(project, e);
         assertEquals(category1.getColor(), category12.getColor());
@@ -151,7 +145,6 @@ public class XmlDeserializerTest extends ProjectTestFixture {
      */
     @Test
     public void testElementToMmf() throws MmfException {
-        System.out.println("XmlDeserializerTest.testElementToMmf()");
         mmfA.setLocked(true);
         Element e = XmlSerializer.mmfToElement(project, mmfA);
         Mmf mmfA2 = XmlDeserializer.elementToMmf(project, e);
@@ -178,8 +171,6 @@ public class XmlDeserializerTest extends ProjectTestFixture {
      */
     @Test
     public void testElementToTabPanePanelPlacement() throws MmfException {
-        System.out.println("XmlDeserializerTest.testElementToTabPanePanelPlacement()");
-
         Element e = XmlSerializer.tabPanePanelPlacementToElement(placement);
         placement.movePanel("projectPropPanel", TabPanePanelPlacement.PLACEMENT_LOWER);
         placement.setVisible("projectPropPanel", false);

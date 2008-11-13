@@ -39,7 +39,6 @@ public class MainTest {
 
     @Test
     public void testMain() throws Exception {
-        System.out.println("MainTest.testMain()");
         Frame[] frames = Frame.getFrames();
         int frameCount = frames.length;
         Main.main(null);

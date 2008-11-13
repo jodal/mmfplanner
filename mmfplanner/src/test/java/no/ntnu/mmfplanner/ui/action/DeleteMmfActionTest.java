@@ -48,8 +48,6 @@ public class DeleteMmfActionTest extends ActionTestFixture {
      */
     @Test(expected = NullPointerException.class)
     public void testConstructWithNull() {
-        System.out.println("DeleteMmfActionTest.testConstructWithNull()");
-
         new DeleteMmfAction(null);
     }
 
@@ -59,8 +57,6 @@ public class DeleteMmfActionTest extends ActionTestFixture {
      */
     @Test
     public void testActionPerformed() {
-        System.out.println("DeleteMmfActionTest.testActionPerformed()");
-
         JTable table = mainFrame.getMmfTable();
         assertEquals(2, project.size());
 

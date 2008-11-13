@@ -63,8 +63,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
      */
     @Test
     public void testProjectToElement() {
-        System.out.println("XmlSerializerTest.testProjectToElement()");
-
         String exp = "<project><name>Test project</name><periods>12</periods><"
                 + "interestrate>0.0080</interestrate><nextid>C</nextid><maxmmfs>"
                 + "1</maxmmfs><catego"
@@ -102,8 +100,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
      */
     @Test
     public void testCategoryToElement() {
-        System.out.println("XmlSerializerTest.testCategoryToElement()");
-
         String exp1 = "<category id=\"0\"><name>Online Travel Agency</name><co"
                 + "lor>FF0000</color><parent /></category>";
         String exp2 = "<category id=\"1\"><name>Trip Planner</name><color>0000"
@@ -121,9 +117,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
      */
     @Test
     public void testTabPanePanelPlacementToElement() {
-        System.out
-                .println("XmlSerializerTest.testTabPanePanelPlacementToElement()");
-
         String exp1 = "<panels><panel id=\"projectPropPanel\"><visible>true</visible>"
                 + "<placement>upper</placement></panel><panel id=\"mmfTablePanel\"><visible>false</visible>"
                 + "<placement>lower</placement></panel></panels>";
@@ -138,8 +131,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
      */
     @Test
     public void testMmfToElement() {
-        System.out.println("XmlSerializerTest.testMmfToElement()");
-
         String expB = "<mmf id=\"B\"><name>Test B</name><period>1</period><locked>false</locked><swi"
                 + "mlane>1</swimlane><category_ref>0</category_ref><precursors>A</prec"
                 + "ursors><revenues /></mmf>";
@@ -174,8 +165,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
     @Ignore("Doctype is not yet used in the serialization.")
     @Test
     public void testWriteProject() throws Exception {
-        System.out.println("XmlSerializerTest.testWriteProject()");
-
         String exp = "<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>\\s*<!DOCTYPE mmfproject SYSTEM \"http://mmfplanner.googlecode.com/svn/dist/mmfproject.dtd\">\\s*<mmfproject>\\s*<project>.+</project>\\s*<settings>.+</settings>\\s*</mmfproject>\\s*";
         Pattern pexp = Pattern.compile(exp, Pattern.DOTALL);
         int expSize = 3086;
@@ -202,8 +191,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
 
     @Test
     public void testDocumentTypeDefinition() throws Exception {
-        System.out.println("XmlSerializerTest.testDocumentTypeDefinition()");
-
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         XmlSerializer.writeWorkspace(placement, project, os);
         ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());
@@ -222,8 +209,6 @@ public class XmlSerializerTest extends ProjectTestFixture {
 
     @Test
     public void testXmlSchema() throws Exception {
-        System.out.println("XmlSerializerTest.testXmlSchema()");
-
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         XmlSerializer.writeWorkspace(placement, project, os);
         ByteArrayInputStream is = new ByteArrayInputStream(os.toByteArray());

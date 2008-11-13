@@ -30,8 +30,6 @@ import static org.junit.Assert.*;
 public class GuiUtilTest {
     @Test
     public void testGetColorName() {
-        System.out.println("GuiUtilTest.testGetColorName()");
-
         Color colors[] = new Color[] { Color.BLACK, Color.WHITE,
                 new Color(1, 240, 15), TangoColor.BUTTER_1,
                 TangoColor.ALUMINIUM_6 };
@@ -44,15 +42,11 @@ public class GuiUtilTest {
 
     @Test(expected = NullPointerException.class)
     public void testGetColorNameWithNull() {
-        System.out.println("GuiUtilTest.testGetColorNameWithNull()");
-
         GuiUtil.getColorName(null);
     }
 
     @Test
     public void getBrightness() {
-        System.out.println("GuiUtilTest.getBrightness()");
-
         assertEquals((255 * 299) / 1000, GuiUtil.getGrayscale(Color.RED));
         assertEquals((255 * 587) / 1000, GuiUtil.getGrayscale(Color.GREEN));
         assertEquals((255 * 114) / 1000, GuiUtil.getGrayscale(Color.BLUE));
@@ -60,8 +54,6 @@ public class GuiUtilTest {
 
     @Test
     public void getBlackWhiteColor() {
-        System.out.println("GuiUtilTest.getBlackWhiteColor()");
-
         assertEquals(Color.BLACK, GuiUtil.getBlackWhiteColor(Color.WHITE));
         assertEquals(Color.BLACK, GuiUtil.getBlackWhiteColor(Color.YELLOW));
         assertEquals(Color.BLACK, GuiUtil.getBlackWhiteColor(Color.LIGHT_GRAY));

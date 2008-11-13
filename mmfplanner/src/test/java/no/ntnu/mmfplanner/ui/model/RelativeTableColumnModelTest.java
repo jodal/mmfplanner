@@ -43,9 +43,6 @@ public class RelativeTableColumnModelTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testRelativeTableColumnModel() {
-        System.out
-                .println("RelativeTableColumnModelTest.testRelativeTableColumnModel()");
-
         model = new RelativeTableColumnModel(new int[] { 0, -2,
                 -Integer.MAX_VALUE, 1, 4, 99 }, new int[] { 0, 200, 50, 10,
                 400, 500, 900 });
@@ -53,8 +50,6 @@ public class RelativeTableColumnModelTest {
 
     @Test
     public void testResizeColumns() {
-        System.out.println("RelativeTableColumnModelTest.testResizeColumns()");
-
         assertEquals(0, model.getColumnCount());
         TableColumn c1 = new TableColumn(0);
         TableColumn c2 = new TableColumn(1);

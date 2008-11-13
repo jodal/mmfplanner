@@ -60,8 +60,6 @@ public class ProjectPropertiesAdapterTest extends ProjectTestFixture {
 
     @Test
     public void testSetModel() throws MmfException {
-        System.out.println("ProjectPropertiesAdapterTest.testSetModel()");
-
         assertEquals(12, periodsTextField.getValue());
         assertEquals("0.8%", interestRateTextField.getText());
         assertEquals("Test project", projectNameTextField.getText());
@@ -91,8 +89,6 @@ public class ProjectPropertiesAdapterTest extends ProjectTestFixture {
 
     @Test
     public void testFocusLost() {
-        System.out.println("ProjectPropertiesAdapterTest.testFocusLost()");
-
         assertEquals(12, project.getPeriods());
         periodsTextField.setValue(13);
         propAdapter.focusLost(new FocusEvent(periodsTextField,
@@ -125,9 +121,6 @@ public class ProjectPropertiesAdapterTest extends ProjectTestFixture {
 
     @Test
     public void testActionPerformed() {
-        System.out
-                .println("ProjectPropertiesAdapterTest.testActionPerformed()");
-
         assertEquals(12, project.getPeriods());
         periodsTextField.setValue(13);
         propAdapter.actionPerformed(new ActionEvent(periodsTextField,
@@ -156,8 +149,6 @@ public class ProjectPropertiesAdapterTest extends ProjectTestFixture {
 
     @Test
     public void testPropertyChange() throws MmfException {
-        System.out.println("ProjectPropertiesAdapterTest.testPropertyChange()");
-
         assertEquals(0.008, project.getInterestRate(), 0.00001);
         project.setInterestRate(0.01);
         assertEquals("1.0%", interestRateTextField.getText());

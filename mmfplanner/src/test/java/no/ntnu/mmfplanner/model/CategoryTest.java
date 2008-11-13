@@ -40,8 +40,6 @@ public class CategoryTest extends ProjectTestFixture {
 
     @Test
     public void setName() {
-        System.out.println("CategoryTest.setName()");
-
         assertEquals("Online Travel Agency", category1.getName());
         assertEquals("Trip Planner", category2.getName());
 
@@ -55,8 +53,6 @@ public class CategoryTest extends ProjectTestFixture {
 
     @Test
     public void setColor() {
-        System.out.println("CategoryTest.setColor()");
-
         assertEquals(Color.RED, category1.getColor());
         assertEquals(Color.BLUE, category2.getColor());
 
@@ -70,8 +66,6 @@ public class CategoryTest extends ProjectTestFixture {
 
     @Test
     public void setParent() throws MmfException {
-        System.out.println("CategoryTest.setParent()");
-
         assertEquals(null, category1.getParent());
         assertEquals(category1, category2.getParent());
 
@@ -86,8 +80,6 @@ public class CategoryTest extends ProjectTestFixture {
 
     @Test
     public void setParentToSelf() throws MmfException {
-        System.out.println("CategoryTest.setParentToSelf()");
-
         try {
             category1.setParent(category1);
             fail("MmfException expected");
@@ -98,8 +90,6 @@ public class CategoryTest extends ProjectTestFixture {
 
     @Test
     public void setParentToChild() throws MmfException {
-        System.out.println("CategoryTest.setParentToChild()");
-
         try {
             category1.setParent(category2);
             fail("MmfException expected");
