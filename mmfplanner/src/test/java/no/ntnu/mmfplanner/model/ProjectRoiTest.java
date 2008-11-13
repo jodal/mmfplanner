@@ -1,12 +1,10 @@
 /*
- * ProjectRoiTest.java
- * 
- * Created on 17. nov.. 2007, 15.09.39
- * 
- * Version $Id: ProjectRoiTest.java 1407 2007-11-17 14:45:25Z erikbagg $
+ * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
+ * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
- * Copyright 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
- * Erik Bagge Ottesen, Ralf Bjarne Taraldset
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2
+ * as published by the Free Software Foundation.
  */
 
 package no.ntnu.mmfplanner.model;
@@ -19,13 +17,6 @@ import org.junit.Test;
 
 /**
  * Test for {@link ProjectRoi}
- * 
- * @version $Revision: 1407 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class ProjectRoiTest extends ProjectTestFixture {
 

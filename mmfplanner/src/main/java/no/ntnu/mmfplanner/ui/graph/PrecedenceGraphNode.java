@@ -1,13 +1,10 @@
 /*
- * $Id: PrecedenceGraphNode.java 1406 2007-11-17 14:44:28Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.graph;
@@ -33,13 +30,6 @@ import edu.umd.cs.piccolo.util.PPaintContext;
  * Paints white/gray areas to separate each period. The first period is drawn in
  * white, the second in gray, etc. The width of a period is given by
  * MmfNode.WIDTH + MmfNode.PADDING_WIDTH.
- *
- * @version $Revision: 1406 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class PrecedenceGraphNode extends ProjectGraphNode {
     private static final long serialVersionUID = 1L;

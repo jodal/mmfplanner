@@ -1,13 +1,10 @@
 /*
- * $Id $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui;
@@ -33,13 +30,6 @@ import no.ntnu.mmfplanner.ui.action.ToggleTabAction;
  * Helper class for handling placement of panels on different panes. Currently
  * used for handling which panes are placed on the upper or lower pane, as well
  * as handling visibility.
- * 
- * @version $Revision: 1406 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class TabPanePanelPlacement {
     public static final int TYPE_INPUT = 1;

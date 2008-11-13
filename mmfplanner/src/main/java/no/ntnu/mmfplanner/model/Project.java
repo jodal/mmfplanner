@@ -1,13 +1,10 @@
 /*
- * $Id: Project.java 1403 2007-11-17 14:19:58Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.model;
@@ -20,19 +17,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
  * Contains all information related to an IFM Project. This will handle involved
  * MMFs, data-consistency, calculations that include more than one MMF. If will
  * also forward any events from MMFs and Categories so that it is easier for
  * observers to observe only the Project object and not handle which MMFs and
  * Categories are a part of the Project.
- *
- * @version $Revision: 1403 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class Project implements PropertyChangeListener {
 

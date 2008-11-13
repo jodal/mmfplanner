@@ -1,13 +1,10 @@
 /*
- * $Id: ProjectSorter.java 1639 2007-11-20 16:50:30Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.model;
@@ -20,13 +17,6 @@ import java.util.List;
 
 /**
  * Abstract class for project sorters.
- *
- * @version $Revision: 1639 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public abstract class ProjectSorter implements Runnable {
     public static class Result {

@@ -1,13 +1,10 @@
 /*
- * $Id: XmlDeserializer.java 1526 2007-11-19 16:21:30Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.util;
@@ -26,13 +23,6 @@ import nu.xom.*;
 
 /**
  * Helper class for serializing a MMF Project into an XML file.
- * 
- * @version $Revision: 1526 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class XmlDeserializer {
     /**

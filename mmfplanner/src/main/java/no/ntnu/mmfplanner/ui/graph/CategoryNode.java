@@ -1,13 +1,10 @@
 /*
- * $Id: CategoryNode.java 1403 2007-11-17 14:19:58Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.graph;
@@ -30,13 +27,6 @@ import edu.umd.cs.piccolo.util.PPaintContext;
  * Draw the given Category within the given bounds. This does not need to listen
  * for events from the Category, ProjectGraphNode will handle invalidation and
  * layout.
- *
- * @version $Revision: 1403 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class CategoryNode extends PNode {
     private static final long serialVersionUID = 1L;

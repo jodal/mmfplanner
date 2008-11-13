@@ -1,13 +1,10 @@
 /*
- * $Id: CategoryTableModelTest.java 1025 2007-10-30 11:00:05Z jodal $
- * 
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.model;
@@ -21,6 +18,9 @@ import no.ntnu.mmfplanner.ProjectTestFixture;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test suite for {@link CategoryTableModel}
+ */
 public class CategoryTableModelTest extends ProjectTestFixture {
     CategoryTableModel testModel;
 

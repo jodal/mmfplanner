@@ -1,13 +1,10 @@
 /*
- * $Id: SaNpvTableModel.java 1403 2007-11-17 14:19:58Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.model;
@@ -21,7 +18,6 @@ import no.ntnu.mmfplanner.model.Mmf;
 import no.ntnu.mmfplanner.model.Project;
 
 /**
- *
  * This is a class for displaying the Sequense adjusted net present value for a
  * project in a table
  *
@@ -30,12 +26,6 @@ import no.ntnu.mmfplanner.model.Project;
  *
  * @see no.ntnu.mmfplanner.model.Project#getSaNpvTable() Here is the actual
  *      calculations done
- * @version $Revision: 1403 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 
 public class SaNpvTableModel extends AbstractTableModel implements

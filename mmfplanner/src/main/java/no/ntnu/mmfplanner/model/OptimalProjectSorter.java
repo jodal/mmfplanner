@@ -1,13 +1,10 @@
 /*
- * $Id: OptimalProjectSorter.java 1522 2007-11-19 15:44:49Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.model;
@@ -24,13 +21,6 @@ import no.ntnu.mmfplanner.util.ProjectSorterUtil;
  * The class has been optimized some, and as such it will now handle up to about
  * 13-15 MMFs in a project with several precursors. Without any precursors any
  * more than 10 MMFs will take some time to complete.
- *
- * @version $Revision: 1522 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class OptimalProjectSorter extends ProjectSorter {
     private int[][] sanpv;

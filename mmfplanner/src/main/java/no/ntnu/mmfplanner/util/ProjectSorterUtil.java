@@ -1,13 +1,10 @@
 /*
- * $Id: ProjectSorterUtil.java 1523 2007-11-19 15:46:59Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.util;
@@ -24,13 +21,6 @@ import no.ntnu.mmfplanner.model.ProjectSorter;
 /**
  * Helper methods for use by {@link ProjectSorter} classes, as well as helper
  * functions for sorting by precursor and pretty sorting swimlanes.
- * 
- * @version $Revision: 1523 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class ProjectSorterUtil {
 

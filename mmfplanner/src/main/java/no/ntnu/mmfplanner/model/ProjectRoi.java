@@ -1,27 +1,16 @@
 /*
- * $Id: ProjectRoi.java 1403 2007-11-17 14:19:58Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.model;
 
 /**
- *
- * Class for holding the project ROI values. Also has a method for calculating the values.
- *
- * @version $Revision: 1403 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
+ * Holds the project ROI values. Also has a method for calculating the values.
  */
 public class ProjectRoi {
     public Mmf mmfs[];

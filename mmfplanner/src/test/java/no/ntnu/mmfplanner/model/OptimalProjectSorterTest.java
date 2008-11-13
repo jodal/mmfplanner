@@ -1,12 +1,10 @@
 /*
- * OptimalProjectSorterTest.java
+ * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
+ * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
- * Created on 12. nov.. 2007, 09.35.53
- *
- * Version $Id: OptimalProjectSorterTest.java 1639 2007-11-20 16:50:30Z erikbagg $
- *
- * Copyright 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
- * Erik Bagge Ottesen, Ralf Bjarne Taraldset
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2
+ * as published by the Free Software Foundation.
  */
 
 package no.ntnu.mmfplanner.model;
@@ -20,14 +18,7 @@ import no.ntnu.mmfplanner.model.ProjectSorter.Result;
 import org.junit.Test;
 
 /**
- * TODO: Description of class and functionality.
- * 
- * @version $Revision: 1639 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
+ * Test suite for {@link OptimalProjectSorter}
  */
 public class OptimalProjectSorterTest {
     private static final int REVENUE_2[][] = new int[][] {

@@ -1,13 +1,10 @@
 /*
- * $Id: LoadTestProjectAction.java 1403 2007-11-17 14:19:58Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.action;
@@ -25,13 +22,6 @@ import no.ntnu.mmfplanner.ui.MainFrame;
  * Loads a test project with associated data. This is the project used to
  * calculate the ROI table on page 87 in Software by Numbers, and is used when
  * demonstrating the ROI table.
- *
- * @version $Revision: 1403 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class LoadTestProjectAction extends MainAbstractAction {
     private static final long serialVersionUID = 1L;

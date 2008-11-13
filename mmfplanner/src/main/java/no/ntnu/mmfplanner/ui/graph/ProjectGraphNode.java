@@ -1,13 +1,10 @@
 /*
- * $Id: ProjectGraphNode.java 1403 2007-11-17 14:19:58Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.graph;
@@ -23,13 +20,6 @@ import edu.umd.cs.piccolo.PNode;
  * usually contains nodes for all MMFs and possibly all categories, as well as
  * links or dependencies. The actual implementations are given in
  * DecomopositionGraphNode and PrecedenceGraphNode.
- *
- * @version $Revision: 1403 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public abstract class ProjectGraphNode extends PNode implements
         PropertyChangeListener {

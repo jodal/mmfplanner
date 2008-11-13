@@ -1,13 +1,10 @@
 /*
- * $Id: MainFrame.java 1411 2007-11-17 15:06:49Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui;
@@ -63,19 +60,11 @@ import no.ntnu.mmfplanner.util.TangoColor;
 import edu.umd.cs.piccolox.swing.PScrollPane;
 
 /**
- *
  * The MainFrame class makes the GUI for the program. It also includes some test
  * data for quick demonstration
  *
  * It initializes the models to be used for GUI, the graphs and all GUI elements
  * It also has some action listeners
- *
- * @version $Revision: 1411 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class MainFrame extends JFrame {
     private static final long serialVersionUID = 1L;

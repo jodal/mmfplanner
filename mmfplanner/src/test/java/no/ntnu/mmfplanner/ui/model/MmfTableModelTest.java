@@ -1,13 +1,10 @@
 /*
- * $Id: MmfTableModelTest.java 1397 2007-11-17 13:55:32Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.model;
@@ -24,16 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Table model used as an adapter between the list of MMFs in Project and the
- * JTable MainFrame.mmfTable. This also handles adding new MMFs with the last
- * row being a new/empty MMF.
- *
- * @version $Revision: 1397 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
+ * Test suite for {@link MmfTableModel}
  */
 public class MmfTableModelTest extends ProjectTestFixture {
 

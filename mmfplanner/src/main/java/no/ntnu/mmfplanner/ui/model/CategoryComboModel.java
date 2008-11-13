@@ -1,13 +1,10 @@
 /*
- * $Id: CategoryComboModel.java 1406 2007-11-17 14:44:28Z erikbagg $
- *
  * Copyright (C) 2007 Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen,
  * Erik Bagge Ottesen, Ralf Bjarne Taraldset, and Iterate AS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2
  * as published by the Free Software Foundation.
- *
  */
 
 package no.ntnu.mmfplanner.ui.model;
@@ -23,16 +20,8 @@ import no.ntnu.mmfplanner.model.Mmf;
 import no.ntnu.mmfplanner.model.Project;
 
 /**
- * 
  * ComboBoxModel for use in the category table in properties panel, as well as
  * the MMF table.
- * 
- * @version $Revision: 1406 $
- * @author Snorre Gylterud
- * @author Stein Magnus Jodal
- * @author Johannes Knutsen
- * @author Erik Bagge Ottesen
- * @author Ralf Bjarne Taraldset
  */
 public class CategoryComboModel extends AbstractListModel implements
         ComboBoxModel, PropertyChangeListener {
