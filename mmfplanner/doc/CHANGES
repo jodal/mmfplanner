@@ -1,9 +1,15 @@
-Version 1.0.2 - UNRELEASED
+Version 1.1.0 - UNRELEASED
 
-  Bugfixes:
+  Enhancements:
+ 
+    - Converted build system from Ant to Maven 2.
 
-    - Fixed rendering on category table.
+  Bug fixes:
 
+    - Fixed GC#12 (Category/MMF name is invisible when selecting row)
+    - Fixed GC#14 (First-time charts rendering prints stuff to System.out)
+    - Fixed GC#13 (Text on close button in about window is abbreviated)
+    
 Version 1.0.1 - Released 2007 November 21
 
   Enhancements:
@@ -13,7 +19,7 @@ Version 1.0.1 - Released 2007 November 21
     - NPV chart: In cases with multiple minimas, the self-funding point was set
       at the first minima, instead of the global minima.
 
-  Bugfixes:
+  Bug fixes:
 
     - File open did not work because the XML parser tried to reach the XML DTD,
       which was specified as an URI in saved projects, at the local computer.
