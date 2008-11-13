@@ -13,7 +13,6 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.net.URL;
 import java.util.regex.Pattern;
 
