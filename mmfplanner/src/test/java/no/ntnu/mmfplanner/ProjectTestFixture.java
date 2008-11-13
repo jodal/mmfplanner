@@ -25,51 +25,51 @@ import no.ntnu.mmfplanner.model.Project;
  */
 public abstract class ProjectTestFixture {
 
-	protected Project project;
+    protected Project project;
 
-	protected Mmf mmfA, mmfB;
+    protected Mmf mmfA, mmfB;
 
-	protected Category category1, category2;
+    protected Category category1, category2;
 
-	protected PropertyChangeEvent propEvt;
+    protected PropertyChangeEvent propEvt;
 
-	protected PropertyChangeListener propChg = new PropertyChangeListener() {
-		public void propertyChange(PropertyChangeEvent evt) {
-			propCount++;
-			propEvt = evt;
-		}
-	};
+    protected PropertyChangeListener propChg = new PropertyChangeListener() {
+        public void propertyChange(PropertyChangeEvent evt) {
+            propCount++;
+            propEvt = evt;
+        }
+    };
 
-	protected int propCount = 0;
+    protected int propCount = 0;
 
-	@Before
-	public void setUpFixture() throws Exception {
-		project = new Project();
-		project.setName("Test project");
-		project.setPeriods(12);
-		project.setInterestRate(0.008);
+    @Before
+    public void setUpFixture() throws Exception {
+        project = new Project();
+        project.setName("Test project");
+        project.setPeriods(12);
+        project.setInterestRate(0.008);
 
-		category1 = new Category("Online Travel Agency", Color.RED, null);
-		project.addCategory(category1);
+        category1 = new Category("Online Travel Agency", Color.RED, null);
+        project.addCategory(category1);
 
-		category2 = new Category("Trip Planner", Color.BLUE, category1);
-		project.addCategory(category2);
+        category2 = new Category("Trip Planner", Color.BLUE, category1);
+        project.addCategory(category2);
 
-		mmfA = new Mmf("A", "Test A");
-		int revenues[] = new int[] { -200, -200, 100, 120, 140, 160, 200, 220,
-				240, 300, 320, 340, 1000, 2000, 3000 };
-		for (int i = 1; i <= revenues.length; i++) {
-			mmfA.setRevenue(i, revenues[i - 1]);
-		}
-		mmfA.setPeriod(2);
-		mmfA.setLocked(true);
-		project.add(mmfA);
+        mmfA = new Mmf("A", "Test A");
+        int revenues[] = new int[] { -200, -200, 100, 120, 140, 160, 200, 220,
+                240, 300, 320, 340, 1000, 2000, 3000 };
+        for (int i = 1; i <= revenues.length; i++) {
+            mmfA.setRevenue(i, revenues[i - 1]);
+        }
+        mmfA.setPeriod(2);
+        mmfA.setLocked(true);
+        project.add(mmfA);
 
-		mmfB = new Mmf("B", "Test B");
-		mmfB.setPeriod(1);
-		project.add(mmfB);
-		mmfB.setCategory(category1);
-		mmfB.addPrecursor(mmfA);
+        mmfB = new Mmf("B", "Test B");
+        mmfB.setPeriod(1);
+        project.add(mmfB);
+        mmfB.setCategory(category1);
+        mmfB.addPrecursor(mmfA);
 
-	}
+    }
 }
