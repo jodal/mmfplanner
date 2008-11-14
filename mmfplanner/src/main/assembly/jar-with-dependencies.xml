@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<assembly>
+	<id>jar-with-dependencies</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory></outputDirectory>
+			<outputFileNameMapping></outputFileNameMapping>
+			<unpack>true</unpack>
+			<scope>runtime</scope>
+			<!--
+				The exclusion of transitive dependencies below is the only
+				difference between this descriptor and the predefined
+				'jar-with-dependencies'. It reduces the size of the jar file from
+				about 10MB to 2MB.
+			-->
+			<useTransitiveDependencies>false</useTransitiveDependencies>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<directory>target/classes</directory>
+			<outputDirectory></outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

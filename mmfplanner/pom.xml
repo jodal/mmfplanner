@@ -114,9 +114,9 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 
 				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<descriptors>
+						<descriptor>src/main/assembly/jar-with-dependencies.xml</descriptor>
+					</descriptors>
 					<archive>
 						<manifest>
 							<mainClass>${main.class}</mainClass>
