@@ -2,11 +2,20 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>no.ntnu</groupId>
 	<artifactId>mmfplanner</artifactId>
 	<version>1.1-SNAPSHOT</version>
+	
 	<packaging>jar</packaging>
+	
 	<name>MMF Planner</name>
+	<description>MMF Planner is a project planning tool for projects using the Incremental Funding Method (IFM).</description>
+	<!--
+		"url" is used for "codebase" in generated JNLP files, unless we
+		provide our own JNLP file template
+	-->
+	<url>http://mmfplanner.googlecode.com/svn/dist/</url>
 
 	<organization>
 		<name>MMF Planner project</name>
@@ -15,6 +24,10 @@
 
 	<repositories>
 		<repository>
+			<!--
+				May be removed if piccolo and piccolox are made available through
+				other Maven repositories.
+			-->
 			<id>mmfplanner.repo.lib</id>
 			<url>file://${basedir}/repo</url>
 		</repository>
@@ -52,11 +65,30 @@
 			<artifactId>jfreechart</artifactId>
 			<version>1.0.7</version>
 		</dependency>
+		<dependency>
+			<!--
+				Transitive dependency through jfreechart, but added explicitly to
+				include it in the JNLP packaging, as it is the only transitive
+				dependency needed at runtime.
+			-->
+			<groupId>jfree</groupId>
+			<artifactId>jcommon</artifactId>
+			<version>1.0.12</version>
+		</dependency>
 	</dependencies>
+
+	<properties>
+		<!-- main.class is used for both Jar and JNLP packaging -->
+		<main.class>no.ntnu.mmfplanner.Main</main.class>
+	</properties>
 
 	<build>
 		<plugins>
 			<plugin>
+				<!--
+					If source/target requirement are increased from 1.5 to 1.6, it
+					should be possible to remove the swing-layout dependency.
+				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -74,20 +106,20 @@
 			</plugin>
 
 			<plugin>
+				<!--
+					Create a complete Jar file with all dependencies which may be
+					executed as simple as `java -jar path/to/mmfplanner.jar`.
+				-->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 
 				<configuration>
 					<descriptorRefs>
-						<descriptorRef>
-							jar-with-dependencies
-                                                </descriptorRef>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>
-								no.ntnu.mmfplanner.Main
-                                                        </mainClass>
+							<mainClass>${main.class}</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -102,7 +134,74 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<!--
+					Create folder/Zip file with a ready JNLP file and all dependencies
+					needed, everything signed by a generated throw-away certificate.
+					May be used by executing `javaws path/to/mmfplanner.jnlp`.
+				-->
+				<groupId>org.codehaus.mojo.webstart</groupId>
+				<artifactId>webstart-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>mmfplanner-package-webstart</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jnlp-inline</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jnlp>
+						<!-- mmfplanner.jnlp is nicer than the default launch.jnlp -->
+						<outputFile>${artifactId}.jnlp</outputFile>
+						<mainClass>${main.class}</mainClass>
+					</jnlp>
+
+					<!-- Eliminates lots of dependencies unneeded at runtime. -->
+					<excludeTransitive>true</excludeTransitive>
+
+					<!-- SIGNING -->
+					<sign>
+						<keystore>${project.build.directory}/keyStore</keystore>
+						<keypass>s3cret1</keypass>
+						<storepass>s3cret2</storepass>
+						<alias>webstart</alias>
+
+						<!-- Required for generating the key store -->
+						<storetype>jks</storetype>
+						<validity>365</validity>
+						<dnameCn>${project.name}</dnameCn>
+						<dnameOu>${project.organization.name}</dnameOu>
+						<dnameO>${project.organization.name}</dnameO>
+						<dnameL>Oslo</dnameL>
+						<dnameSt>N/A</dnameSt>
+						<dnameC>NO</dnameC>
+
+						<!-- Verify the signature after signing -->
+						<verify>true</verify>
+
+						<!-- KEYSTORE MANAGEMENT -->
+						<keystoreConfig>
+							<!-- Delete the key store at build time -->
+							<delete>true</delete>
+							<!-- Generate key store and key at build time -->
+							<gen>true</gen>
+						</keystoreConfig>
+					</sign>
+
+					<!-- Unsign already signed packages and sign them with own key -->
+					<unsign>true</unsign>
+
+					<!-- Package compressions -->
+					<pack200>false</pack200>
+					<gzip>true</gzip>
+
+					<!-- Verbose output when building -->
+					<verbose>false</verbose>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
