@@ -1,7 +1,7 @@
-Version 1.1.0 - UNRELEASED
+Version 1.1.0 - Released 2008 November 14
 
   Enhancements:
- 
+
     - Converted build system from Ant to Maven 2.
 
   Bug fixes:
@@ -9,7 +9,8 @@ Version 1.1.0 - UNRELEASED
     - Fixed GC#12 (Category/MMF name is invisible when selecting row)
     - Fixed GC#14 (First-time charts rendering prints stuff to System.out)
     - Fixed GC#13 (Text on close button in about window is abbreviated)
-    
+
+
 Version 1.0.1 - Released 2007 November 21
 
   Enhancements:
