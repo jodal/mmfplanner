@@ -16,10 +16,12 @@ import java.beans.PropertyChangeListener;
 import java.net.URL;
 
 import javax.swing.DefaultCellEditor;
+import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.LayoutStyle;
 import javax.swing.table.TableColumn;
 
 import no.ntnu.mmfplanner.model.Category;
@@ -62,7 +64,7 @@ import edu.umd.cs.piccolox.swing.PScrollPane;
 /**
  * The MainFrame class makes the GUI for the program. It also includes some test
  * data for quick demonstration
- *
+ * 
  * It initializes the models to be used for GUI, the graphs and all GUI elements
  * It also has some action listeners
  */
@@ -80,7 +82,7 @@ public class MainFrame extends JFrame {
     private boolean changed;
 
     private TabPanePanelPlacement placement;
-    
+
     private ProjectPropertiesAdapter projectPropertiesAdapter;
 
     /** Creates new form MainFrame */
@@ -161,7 +163,8 @@ public class MainFrame extends JFrame {
     }
 
     public void updateTitle() {
-        if ((project != null) && (project.getName() != null) && !"".equals(project.getName())) {
+        if ((project != null) && (project.getName() != null)
+                && !"".equals(project.getName())) {
             setTitle(project.getName() + " - MMF Planner");
         } else {
             setTitle("MMF Planner");
@@ -172,7 +175,7 @@ public class MainFrame extends JFrame {
         this.project = project;
         changed = false;
 
-        //XXX: should be changed to handle modifications better
+        // XXX: should be changed to handle modifications better
         project.addPropertyChangeListener(new PropertyChangeListener() {
             public void propertyChange(PropertyChangeEvent evt) {
                 changed = true;
@@ -181,7 +184,6 @@ public class MainFrame extends JFrame {
         });
         updateTitle();
 
-
         // Project properties
         projectPropertiesAdapter.setModel(project);
 
@@ -189,7 +191,8 @@ public class MainFrame extends JFrame {
         CategoryTableModel categoryTableModel = new CategoryTableModel(project);
         categoryTable.setModel(categoryTableModel);
         categoryTable.setBackground(Color.WHITE);
-        categoryTable.setDefaultRenderer(Object.class, new CategoryTableCellRenderer());
+        categoryTable.setDefaultRenderer(Object.class,
+                new CategoryTableCellRenderer());
         TableColumn colorColumn = categoryTable.getColumnModel().getColumn(
                 categoryTableModel.findColumn(CategoryTableModel.COLUMN_COLOR));
         JComboBox comboBox = new JComboBox(TangoColor.TANGO_COLORS);
@@ -209,7 +212,8 @@ public class MainFrame extends JFrame {
         // Revenue
         revenueTable.setBackground(Color.WHITE);
         revenueTable.setModel(new RevenueTableModel(project));
-        revenueTable.setDefaultRenderer(Object.class, new RevenueTableCellRenderer());
+        revenueTable.setDefaultRenderer(Object.class,
+                new RevenueTableCellRenderer());
 
         // SANPV
         sanpvTable.setModel(new SaNpvTableModel(project));
@@ -242,25 +246,36 @@ public class MainFrame extends JFrame {
         projectPropertiesAdapter = new ProjectPropertiesAdapter(
                 periodsTextField, interestRateTextField, projectNameTextField,
                 maxMmfsPerPeriodTextField, null);
-        
-        // Tables
-        categoryTable.setDefaultEditor(Category.class, new DefaultCellEditor(categoryComboBox));
-        categoryTable.setDefaultRenderer(Category.class, new CategoryComboCellRenderer());
-        categoryTable.addMouseListener(new PopupListener(categoryTablePopupMenu));
 
-        mmfTable.setDefaultEditor(Category.class, new DefaultCellEditor(categoryComboBox));
-        mmfTable.setDefaultRenderer(Category.class, new CategoryComboCellRenderer());
+        // Tables
+        categoryTable.setDefaultEditor(Category.class, new DefaultCellEditor(
+                categoryComboBox));
+        categoryTable.setDefaultRenderer(Category.class,
+                new CategoryComboCellRenderer());
+        categoryTable
+                .addMouseListener(new PopupListener(categoryTablePopupMenu));
+
+        mmfTable.setDefaultEditor(Category.class, new DefaultCellEditor(
+                categoryComboBox));
+        mmfTable.setDefaultRenderer(Category.class,
+                new CategoryComboCellRenderer());
         mmfTable.addMouseListener(new PopupListener(mmfTablePopupMenu));
-        mmfTable.setColumnModel(new RelativeTableColumnModel(new int[] {0, 1, 2, 3, 4}, new int[] {20, 200, 50, 8, 50}));
-        revenueTable.setColumnModel(new RelativeTableColumnModel(new int[] {0}, new int[] {400}));
+        mmfTable.setColumnModel(new RelativeTableColumnModel(new int[] { 0, 1,
+                2, 3, 4 }, new int[] { 20, 200, 50, 8, 50 }));
+        revenueTable.setColumnModel(new RelativeTableColumnModel(
+                new int[] { 0 }, new int[] { 400 }));
 
         roiTable.setDefaultRenderer(Object.class, new RoiTableCellRenderer());
-        roiTable.setColumnModel(new RelativeTableColumnModel(new int[] {0, -1}, new int[] {400, 200}));
+        roiTable.setColumnModel(new RelativeTableColumnModel(
+                new int[] { 0, -1 }, new int[] { 400, 200 }));
 
-        roiWaterfallTable.setDefaultRenderer(Object.class, new RoiTableCellRenderer());
-        roiWaterfallTable.setColumnModel(new RelativeTableColumnModel(new int[] {0, -1}, new int[] {400, 200}));
+        roiWaterfallTable.setDefaultRenderer(Object.class,
+                new RoiTableCellRenderer());
+        roiWaterfallTable.setColumnModel(new RelativeTableColumnModel(
+                new int[] { 0, -1 }, new int[] { 400, 200 }));
 
-        sanpvTable.setColumnModel(new RelativeTableColumnModel(new int[] {0}, new int[] {400}));
+        sanpvTable.setColumnModel(new RelativeTableColumnModel(new int[] { 0 },
+                new int[] { 400 }));
 
         // Graphs
         decompositionGraph = new no.ntnu.mmfplanner.ui.graph.GraphCanvas();
@@ -289,8 +304,10 @@ public class MainFrame extends JFrame {
 
         // tabs
         placement = new TabPanePanelPlacement(viewMenu);
-        placement.addPane(TabPanePanelPlacement.PLACEMENT_UPPER, upperTabbedPane);
-        placement.addPane(TabPanePanelPlacement.PLACEMENT_LOWER, lowerTabbedPane);
+        placement.addPane(TabPanePanelPlacement.PLACEMENT_UPPER,
+                upperTabbedPane);
+        placement.addPane(TabPanePanelPlacement.PLACEMENT_LOWER,
+                lowerTabbedPane);
 
         placement.add("projectPropPanel", "Project Properties",
                 TabPanePanelPlacement.TYPE_INPUT,
@@ -303,10 +320,12 @@ public class MainFrame extends JFrame {
                 TabPanePanelPlacement.PLACEMENT_LOWER, true, revenueTablePanel);
         placement.add("decompositionScrollPane", "Decomposition Graph",
                 TabPanePanelPlacement.TYPE_OUTPUT,
-                TabPanePanelPlacement.PLACEMENT_UPPER, true, decompositionScrollPane);
+                TabPanePanelPlacement.PLACEMENT_UPPER, true,
+                decompositionScrollPane);
         placement.add("precedenceScrollPane", "Precedence Graph",
                 TabPanePanelPlacement.TYPE_OUTPUT,
-                TabPanePanelPlacement.PLACEMENT_UPPER, true, precedenceScrollPane);
+                TabPanePanelPlacement.PLACEMENT_UPPER, true,
+                precedenceScrollPane);
         placement.add("sanpvTablePanel", "SANPV Table",
                 TabPanePanelPlacement.TYPE_OUTPUT,
                 TabPanePanelPlacement.PLACEMENT_LOWER, true, sanpvTablePanel);
@@ -330,23 +349,29 @@ public class MainFrame extends JFrame {
         lowerTabbedPane.setSelectedIndex(0);
 
         // Upper popup menu to move and hide tabs
-        upperPaneMoveMenuItem.setAction(new MoveTabAction(this, upperTabbedPane, TabPanePanelPlacement.PLACEMENT_LOWER));
-        upperPaneHideMenuItem.setAction(new HideTabAction(placement, upperTabbedPane));
-        TabPopupListener upperPanePopupListener = new TabPopupListener(upperPanePopupMenu);
+        upperPaneMoveMenuItem.setAction(new MoveTabAction(this,
+                upperTabbedPane, TabPanePanelPlacement.PLACEMENT_LOWER));
+        upperPaneHideMenuItem.setAction(new HideTabAction(placement,
+                upperTabbedPane));
+        TabPopupListener upperPanePopupListener = new TabPopupListener(
+                upperPanePopupMenu);
         upperTabbedPane.addMouseListener(upperPanePopupListener);
 
         // Lower popup menu to move and hide tabs
-        lowerPaneMoveMenuItem.setAction(new MoveTabAction(this, lowerTabbedPane, TabPanePanelPlacement.PLACEMENT_UPPER));
-        lowerPaneHideMenuItem.setAction(new HideTabAction(placement, lowerTabbedPane));
-        TabPopupListener lowerPanePopupListener = new TabPopupListener(lowerPanePopupMenu);
+        lowerPaneMoveMenuItem.setAction(new MoveTabAction(this,
+                lowerTabbedPane, TabPanePanelPlacement.PLACEMENT_UPPER));
+        lowerPaneHideMenuItem.setAction(new HideTabAction(placement,
+                lowerTabbedPane));
+        TabPopupListener lowerPanePopupListener = new TabPopupListener(
+                lowerPanePopupMenu);
         lowerTabbedPane.addMouseListener(lowerPanePopupListener);
 
         sortHeuristicMenuItem.setEnabled(false);
     }
 
-
     /**
      * Get the placement instance that keeps the order of all panels.
+     * 
      * @return placement instance used
      */
     public TabPanePanelPlacement getTabPanePanelPlacement() {
@@ -355,7 +380,7 @@ public class MainFrame extends JFrame {
 
     /**
      * The projects precedenceGraphPanel.
-     *
+     * 
      * @return Project's precedenceGraphPanel
      */
     public PScrollPane getPrecedenceGraphPanel() {
@@ -374,15 +399,11 @@ public class MainFrame extends JFrame {
         return mmfTable;
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         projectPropPanel = new javax.swing.JPanel();
@@ -459,7 +480,10 @@ public class MainFrame extends JFrame {
 
         periodsLabel.setText("Number of periods:");
 
-        periodsTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        periodsTextField
+                .setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+                        new javax.swing.text.NumberFormatter(
+                                new java.text.DecimalFormat("#0"))));
         periodsTextField.setMinimumSize(new java.awt.Dimension(100, 21));
 
         interestRateLabel.setText("Interest rate (%):");
@@ -470,170 +494,275 @@ public class MainFrame extends JFrame {
 
         categoryTableScrollPane.setViewportView(categoryTable);
 
-        maxMmfsPerPeriodLabel.setText("<html>NPV sorting,<br>concurrent developed MMFs:</html>");
+        maxMmfsPerPeriodLabel
+                .setText("<html>NPV sorting,<br>concurrent developed MMFs:</html>");
 
-        maxMmfsPerPeriodTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        maxMmfsPerPeriodTextField.setToolTipText("Only applies to NPV Sorting algorithms");
-        maxMmfsPerPeriodTextField.setMinimumSize(new java.awt.Dimension(100, 21));
-        maxMmfsPerPeriodTextField.setPreferredSize(new java.awt.Dimension(100, 20));
+        maxMmfsPerPeriodTextField
+                .setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+                        new javax.swing.text.NumberFormatter(
+                                new java.text.DecimalFormat("#0"))));
+        maxMmfsPerPeriodTextField
+                .setToolTipText("Only applies to NPV Sorting algorithms");
+        maxMmfsPerPeriodTextField
+                .setMinimumSize(new java.awt.Dimension(100, 21));
+        maxMmfsPerPeriodTextField.setPreferredSize(new java.awt.Dimension(100,
+                20));
 
-        org.jdesktop.layout.GroupLayout projectPropPanelLayout = new org.jdesktop.layout.GroupLayout(projectPropPanel);
+        GroupLayout projectPropPanelLayout = new GroupLayout(projectPropPanel);
         projectPropPanel.setLayout(projectPropPanelLayout);
-        projectPropPanelLayout.setHorizontalGroup(
-            projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(projectPropPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(periodsLabel)
-                    .add(projectNameLabel)
-                    .add(interestRateLabel)
-                    .add(categoryLabel))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(categoryTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
-                    .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(projectPropPanelLayout.createSequentialGroup()
-                            .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(interestRateTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                .add(org.jdesktop.layout.GroupLayout.TRAILING, periodsTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(maxMmfsPerPeriodLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 182, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(maxMmfsPerPeriodTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 129, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, projectNameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 466, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        projectPropPanelLayout.setVerticalGroup(
-            projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(projectPropPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(projectNameLabel)
-                    .add(projectNameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(projectPropPanelLayout.createSequentialGroup()
-                        .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(periodsLabel)
-                            .add(periodsTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(interestRateLabel)
-                            .add(interestRateTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(maxMmfsPerPeriodTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(maxMmfsPerPeriodLabel))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(projectPropPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(categoryLabel)
-                    .add(categoryTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        projectPropPanelLayout
+                .setHorizontalGroup(projectPropPanelLayout
+                        .createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(
+                                projectPropPanelLayout
+                                        .createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(
+                                                projectPropPanelLayout
+                                                        .createParallelGroup(
+                                                                GroupLayout.Alignment.LEADING)
+                                                        .addComponent(
+                                                                periodsLabel)
+                                                        .addComponent(
+                                                                projectNameLabel)
+                                                        .addComponent(
+                                                                interestRateLabel)
+                                                        .addComponent(
+                                                                categoryLabel))
+                                        .addPreferredGap(
+                                                LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(
+                                                projectPropPanelLayout
+                                                        .createParallelGroup(
+                                                                GroupLayout.Alignment.LEADING)
+                                                        .addComponent(
+                                                                categoryTableScrollPane,
+                                                                GroupLayout.DEFAULT_SIZE,
+                                                                502,
+                                                                Short.MAX_VALUE)
+                                                        .addGroup(
+                                                                projectPropPanelLayout
+                                                                        .createParallelGroup(
+                                                                                GroupLayout.Alignment.TRAILING,
+                                                                                false)
+                                                                        .addGroup(
+                                                                                projectPropPanelLayout
+                                                                                        .createSequentialGroup()
+                                                                                        .addGroup(
+                                                                                                projectPropPanelLayout
+                                                                                                        .createParallelGroup(
+                                                                                                                GroupLayout.Alignment.LEADING)
+                                                                                                        .addComponent(
+                                                                                                                interestRateTextField,
+                                                                                                                GroupLayout.DEFAULT_SIZE,
+                                                                                                                131,
+                                                                                                                Short.MAX_VALUE)
+                                                                                                        .addComponent(
+                                                                                                                periodsTextField,
+                                                                                                                GroupLayout.Alignment.TRAILING,
+                                                                                                                GroupLayout.DEFAULT_SIZE,
+                                                                                                                125,
+                                                                                                                Short.MAX_VALUE))
+                                                                                        .addPreferredGap(
+                                                                                                LayoutStyle.ComponentPlacement.RELATED)
+                                                                                        .addComponent(
+                                                                                                maxMmfsPerPeriodLabel,
+                                                                                                GroupLayout.PREFERRED_SIZE,
+                                                                                                182,
+                                                                                                GroupLayout.PREFERRED_SIZE)
+                                                                                        .addPreferredGap(
+                                                                                                LayoutStyle.ComponentPlacement.RELATED)
+                                                                                        .addComponent(
+                                                                                                maxMmfsPerPeriodTextField,
+                                                                                                GroupLayout.PREFERRED_SIZE,
+                                                                                                129,
+                                                                                                GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(
+                                                                                projectNameTextField,
+                                                                                GroupLayout.Alignment.LEADING,
+                                                                                GroupLayout.PREFERRED_SIZE,
+                                                                                466,
+                                                                                GroupLayout.PREFERRED_SIZE)))
+                                        .addContainerGap()));
+        projectPropPanelLayout
+                .setVerticalGroup(projectPropPanelLayout
+                        .createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(
+                                projectPropPanelLayout
+                                        .createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(
+                                                projectPropPanelLayout
+                                                        .createParallelGroup(
+                                                                GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(
+                                                                projectNameLabel)
+                                                        .addComponent(
+                                                                projectNameTextField,
+                                                                GroupLayout.PREFERRED_SIZE,
+                                                                GroupLayout.DEFAULT_SIZE,
+                                                                GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(
+                                                LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(
+                                                projectPropPanelLayout
+                                                        .createParallelGroup(
+                                                                GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(
+                                                                projectPropPanelLayout
+                                                                        .createSequentialGroup()
+                                                                        .addGroup(
+                                                                                projectPropPanelLayout
+                                                                                        .createParallelGroup(
+                                                                                                GroupLayout.Alignment.BASELINE)
+                                                                                        .addComponent(
+                                                                                                periodsLabel)
+                                                                                        .addComponent(
+                                                                                                periodsTextField,
+                                                                                                GroupLayout.PREFERRED_SIZE,
+                                                                                                GroupLayout.DEFAULT_SIZE,
+                                                                                                GroupLayout.PREFERRED_SIZE))
+                                                                        .addPreferredGap(
+                                                                                LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addGroup(
+                                                                                projectPropPanelLayout
+                                                                                        .createParallelGroup(
+                                                                                                GroupLayout.Alignment.BASELINE)
+                                                                                        .addComponent(
+                                                                                                interestRateLabel)
+                                                                                        .addComponent(
+                                                                                                interestRateTextField,
+                                                                                                GroupLayout.PREFERRED_SIZE,
+                                                                                                GroupLayout.DEFAULT_SIZE,
+                                                                                                GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(
+                                                                maxMmfsPerPeriodTextField,
+                                                                GroupLayout.PREFERRED_SIZE,
+                                                                GroupLayout.DEFAULT_SIZE,
+                                                                GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(
+                                                                maxMmfsPerPeriodLabel))
+                                        .addPreferredGap(
+                                                LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(
+                                                projectPropPanelLayout
+                                                        .createParallelGroup(
+                                                                GroupLayout.Alignment.LEADING)
+                                                        .addComponent(
+                                                                categoryLabel)
+                                                        .addComponent(
+                                                                categoryTableScrollPane,
+                                                                GroupLayout.DEFAULT_SIZE,
+                                                                170,
+                                                                Short.MAX_VALUE))
+                                        .addContainerGap()));
 
         mmfTablePanel.setName("MMF Table"); // NOI18N
 
         mmfTableScrollPane.setDoubleBuffered(true);
         mmfTableScrollPane.setViewportView(mmfTable);
 
-        org.jdesktop.layout.GroupLayout mmfTablePanelLayout = new org.jdesktop.layout.GroupLayout(mmfTablePanel);
+        GroupLayout mmfTablePanelLayout = new GroupLayout(mmfTablePanel);
         mmfTablePanel.setLayout(mmfTablePanelLayout);
-        mmfTablePanelLayout.setHorizontalGroup(
-            mmfTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(mmfTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(mmfTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        mmfTablePanelLayout.setVerticalGroup(
-            mmfTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, mmfTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(mmfTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        mmfTablePanelLayout.setHorizontalGroup(mmfTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        mmfTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        mmfTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 573,
+                                        Short.MAX_VALUE).addContainerGap()));
+        mmfTablePanelLayout.setVerticalGroup(mmfTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        GroupLayout.Alignment.TRAILING,
+                        mmfTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        mmfTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 248,
+                                        Short.MAX_VALUE).addContainerGap()));
 
         revenueTablePanel.setName("Revenue Table"); // NOI18N
 
         revenueTableScrollPanel.setViewportView(revenueTable);
 
-        org.jdesktop.layout.GroupLayout revenueTablePanelLayout = new org.jdesktop.layout.GroupLayout(revenueTablePanel);
+        GroupLayout revenueTablePanelLayout = new GroupLayout(revenueTablePanel);
         revenueTablePanel.setLayout(revenueTablePanelLayout);
-        revenueTablePanelLayout.setHorizontalGroup(
-            revenueTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(revenueTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(revenueTableScrollPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        revenueTablePanelLayout.setVerticalGroup(
-            revenueTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(revenueTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(revenueTableScrollPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        revenueTablePanelLayout.setHorizontalGroup(revenueTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        revenueTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        revenueTableScrollPanel,
+                                        GroupLayout.DEFAULT_SIZE, 573,
+                                        Short.MAX_VALUE).addContainerGap()));
+        revenueTablePanelLayout.setVerticalGroup(revenueTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        revenueTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        revenueTableScrollPanel,
+                                        GroupLayout.DEFAULT_SIZE, 248,
+                                        Short.MAX_VALUE).addContainerGap()));
 
         sanpvTablePanel.setName("SANPV Table"); // NOI18N
 
         sanpvTableScrollPane.setViewportView(sanpvTable);
 
-        org.jdesktop.layout.GroupLayout sanpvTablePanelLayout = new org.jdesktop.layout.GroupLayout(sanpvTablePanel);
+        GroupLayout sanpvTablePanelLayout = new GroupLayout(sanpvTablePanel);
         sanpvTablePanel.setLayout(sanpvTablePanelLayout);
-        sanpvTablePanelLayout.setHorizontalGroup(
-            sanpvTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(sanpvTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(sanpvTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        sanpvTablePanelLayout.setVerticalGroup(
-            sanpvTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(sanpvTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(sanpvTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        sanpvTablePanelLayout.setHorizontalGroup(sanpvTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        sanpvTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        sanpvTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 573,
+                                        Short.MAX_VALUE).addContainerGap()));
+        sanpvTablePanelLayout.setVerticalGroup(sanpvTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        sanpvTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        sanpvTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 248,
+                                        Short.MAX_VALUE).addContainerGap()));
 
         roiTablePanel.setName("ROI/NPV Table"); // NOI18N
 
         roiTableScrollPane.setViewportView(roiTable);
 
-        org.jdesktop.layout.GroupLayout roiTablePanelLayout = new org.jdesktop.layout.GroupLayout(roiTablePanel);
+        GroupLayout roiTablePanelLayout = new GroupLayout(roiTablePanel);
         roiTablePanel.setLayout(roiTablePanelLayout);
-        roiTablePanelLayout.setHorizontalGroup(
-            roiTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(roiTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(roiTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        roiTablePanelLayout.setVerticalGroup(
-            roiTablePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(roiTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(roiTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        roiTablePanelLayout.setHorizontalGroup(roiTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        roiTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        roiTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 573,
+                                        Short.MAX_VALUE).addContainerGap()));
+        roiTablePanelLayout.setVerticalGroup(roiTablePanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        roiTablePanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        roiTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 248,
+                                        Short.MAX_VALUE).addContainerGap()));
 
         roiWaterfallPanel.setName("ROI/NPV Waterfall"); // NOI18N
 
         roiWaterfallTableScrollPane.setViewportView(roiWaterfallTable);
 
-        org.jdesktop.layout.GroupLayout roiWaterfallPanelLayout = new org.jdesktop.layout.GroupLayout(roiWaterfallPanel);
+        GroupLayout roiWaterfallPanelLayout = new GroupLayout(roiWaterfallPanel);
         roiWaterfallPanel.setLayout(roiWaterfallPanelLayout);
-        roiWaterfallPanelLayout.setHorizontalGroup(
-            roiWaterfallPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(roiWaterfallPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(roiWaterfallTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        roiWaterfallPanelLayout.setVerticalGroup(
-            roiWaterfallPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(roiWaterfallPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(roiWaterfallTableScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        roiWaterfallPanelLayout.setHorizontalGroup(roiWaterfallPanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        roiWaterfallPanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        roiWaterfallTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 573,
+                                        Short.MAX_VALUE).addContainerGap()));
+        roiWaterfallPanelLayout.setVerticalGroup(roiWaterfallPanelLayout
+                .createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+                        roiWaterfallPanelLayout.createSequentialGroup()
+                                .addContainerGap().addComponent(
+                                        roiWaterfallTableScrollPane,
+                                        GroupLayout.DEFAULT_SIZE, 248,
+                                        Short.MAX_VALUE).addContainerGap()));
 
         decompositionScrollPane.setBorder(null);
         decompositionScrollPane.setName("Decomposition"); // NOI18N
@@ -716,48 +845,46 @@ public class MainFrame extends JFrame {
 
         helpAboutMenuItem.setMnemonic('A');
         helpAboutMenuItem.setText("About...");
-        helpAboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                helpAboutAction(evt);
-            }
-        });
+        helpAboutMenuItem
+                .addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        helpAboutAction(evt);
+                    }
+                });
         helpMenu.add(helpAboutMenuItem);
-        helpAboutMenuItem.getAccessibleContext().setAccessibleName("About MMF Planner...");
+        helpAboutMenuItem.getAccessibleContext().setAccessibleName(
+                "About MMF Planner...");
 
         mainMenuBar.add(helpMenu);
         helpMenu.getAccessibleContext().setAccessibleName("");
 
         setJMenuBar(mainMenuBar);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(mainSplitPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .add(mainSplitPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(
+                GroupLayout.Alignment.LEADING).addGroup(
+                layout.createSequentialGroup().addContainerGap().addComponent(
+                        mainSplitPane, GroupLayout.DEFAULT_SIZE, 800,
+                        Short.MAX_VALUE).addContainerGap()));
+        layout.setVerticalGroup(layout.createParallelGroup(
+                GroupLayout.Alignment.LEADING).addGroup(
+                GroupLayout.Alignment.TRAILING,
+                layout.createSequentialGroup().addContainerGap().addComponent(
+                        mainSplitPane, GroupLayout.DEFAULT_SIZE, 600,
+                        Short.MAX_VALUE).addContainerGap()));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void fileExitAction(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_fileExitAction
+    private void fileExitAction(java.awt.event.ActionEvent evt) {
         this.dispose();
-    }// GEN-LAST:event_fileExitAction
+    }
 
-    private void helpAboutAction(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_helpAboutAction
+    private void helpAboutAction(java.awt.event.ActionEvent evt) {
         new AboutDialog(this, true).setVisible(true);
-    }// GEN-LAST:event_helpAboutAction
+    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox categoryComboBox;
     private javax.swing.JMenuItem categoryDeleteMenuItem;
     private javax.swing.JLabel categoryLabel;
@@ -823,6 +950,5 @@ public class MainFrame extends JFrame {
     private javax.swing.JPopupMenu upperPanePopupMenu;
     private javax.swing.JTabbedPane upperTabbedPane;
     private javax.swing.JMenu viewMenu;
-    // End of variables declaration//GEN-END:variables
 
 }
