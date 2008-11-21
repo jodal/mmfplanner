@@ -97,22 +97,6 @@ public class MmfTest extends ProjectTestFixture {
     }
 
     @Test
-    public void setPeriodCount() throws MmfException {
-        assertEquals(1, mmfA.getPeriodCount());
-        mmfA.setPeriodCount(3);
-        assertEquals(3, mmfA.getPeriodCount());
-        try {
-            mmfA.setPeriodCount(0);
-            fail("MmfException expected");
-        } catch (MmfException e) {
-        }
-        assertEquals(3, mmfA.getPeriodCount());
-
-        assertEquals(1, propCount);
-        assertEquals(3, propEvt.getNewValue());
-    }
-
-    @Test
     public void precursors() throws MmfException {
         assertEquals(0, mmfA.getPrecursors().size());
         assertEquals(1, mmfB.getPrecursors().size());

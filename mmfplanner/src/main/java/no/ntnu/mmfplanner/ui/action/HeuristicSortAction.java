@@ -12,15 +12,13 @@ package no.ntnu.mmfplanner.ui.action;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JOptionPane;
-
+import no.ntnu.mmfplanner.model.HeuristicProjectSorter;
+import no.ntnu.mmfplanner.model.ProjectSorter;
 import no.ntnu.mmfplanner.ui.MainFrame;
 import no.ntnu.mmfplanner.ui.SortDialog;
 
 /**
  * Starts a {@link HeuristicProjectSorter} instance as a new thread, and opens the {@link SortDialog}
- * 
- * TODO: Implementation
  */
 public class HeuristicSortAction extends MainAbstractAction {
     private static final long serialVersionUID = 1L;
@@ -40,8 +38,10 @@ public class HeuristicSortAction extends MainAbstractAction {
      * Start the IFM Heuristic sorter
      */
     public void actionPerformed(ActionEvent e) {
-        //TODO: implement IFM heuristic sort
-        JOptionPane.showMessageDialog(mainFrame, "Not implemented");
+        ProjectSorter optimalSorter = new HeuristicProjectSorter(mainFrame.getProject());
+        SortDialog sortDialog = new SortDialog(mainFrame, enabled, optimalSorter);
+        optimalSorter.start(true);
+        sortDialog.setVisible(true);
     }
 
 }

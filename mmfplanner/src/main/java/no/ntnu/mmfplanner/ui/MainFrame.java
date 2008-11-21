@@ -365,8 +365,6 @@ public class MainFrame extends JFrame {
         TabPopupListener lowerPanePopupListener = new TabPopupListener(
                 lowerPanePopupMenu);
         lowerTabbedPane.addMouseListener(lowerPanePopupListener);
-
-        sortHeuristicMenuItem.setEnabled(false);
     }
 
     /**
