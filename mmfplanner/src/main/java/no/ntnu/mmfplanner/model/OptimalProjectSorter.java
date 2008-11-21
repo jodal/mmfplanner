@@ -76,11 +76,7 @@ public class OptimalProjectSorter extends ProjectSorter {
             }
 
             // find development length (minimum 1)
-            mmfLengths[i] = 1;
-            for (int p = 2; (p <= mmf.getRevenueLength())
-                    && (mmf.getRevenue(p) < 0); p++) {
-                mmfLengths[i]++;
-            }
+            mmfLengths[i] = mmf.getPeriodCount();
 
             // precursor matrix
             List<Mmf> pre = mmf.getPrecursors();

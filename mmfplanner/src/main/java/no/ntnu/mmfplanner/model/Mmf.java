@@ -61,13 +61,6 @@ public class Mmf {
     private int period;
 
     /**
-     * The number of consecutive periods that will be used working on an MMF.
-     * This is usually equal to 1, as the general structure of the project is
-     * more important than the exact period count.
-     */
-    private int periodCount;
-
-    /**
      * The view is divided into several swimlanes from top to bottom. This
      * parameter tells which swimlane the MMF will be drawn in. This parameter
      * has no effect expect for positioning in the graph view.
@@ -114,7 +107,6 @@ public class Mmf {
         this.id = id;
         this.name = name;
         this.period = 1;
-        this.periodCount = 1;
         this.swimlane = 1;
         this.precursors = new ArrayList<Mmf>();
         this.category = null;
@@ -223,25 +215,11 @@ public class Mmf {
     }
 
     public int getPeriodCount() {
-        return periodCount;
-    }
-
-    /**
-     * Sets the periodCount and fires an EVENT_PERIOD_COUNT event
-     * 
-     * @param periodCount
-     *            Valid values of periodCount are 1 &lt;= periodCount < ...
-     * @throws MmfException
-     */
-    public void setPeriodCount(int periodCount) throws MmfException {
-        if (periodCount < 1) {
-            throw new MmfException("Invalid periodCount: " + periodCount);
+        int count = 1;
+        for (int p = 2; (p <= getRevenueLength()) && (getRevenue(p) < 0); p++) {
+            count++;
         }
-
-        int oldValue = this.periodCount;
-        this.periodCount = periodCount;
-        changeSupport.firePropertyChange(EVENT_PERIOD_COUNT, oldValue,
-                periodCount);
+        return count;
     }
 
     public List<Mmf> getPrecursors() {
