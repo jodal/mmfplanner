@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>xom</groupId>
 			<artifactId>xom</artifactId>
-			<version>1.1d2</version>
+			<version>1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>jfree</groupId>
@@ -63,12 +63,20 @@
 		<dependency>
 			<!--
 				Transitive dependency through jfreechart, but added explicitly to
-				include it in the JNLP packaging, as it is the only transitive
-				dependency needed at runtime.
+				include it in the JNLP packaging.
 			-->
 			<groupId>jfree</groupId>
 			<artifactId>jcommon</artifactId>
 			<version>1.0.12</version>
+		</dependency>
+		<dependency>
+			<!--
+				Transitive dependency through xom, but added explicitly to
+				include it in the JNLP packaging.
+			-->
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1-beta-8</version>
 		</dependency>
 	</dependencies>
 
