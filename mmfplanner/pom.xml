@@ -5,7 +5,7 @@
 	
 	<groupId>no.ntnu</groupId>
 	<artifactId>mmfplanner</artifactId>
-	<version>1.1.1</version>
+	<version>1.1.2-SNAPSHOT</version>
 	
 	<packaging>jar</packaging>
 	
