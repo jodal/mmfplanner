@@ -45,19 +45,6 @@ license text.
 Changes
 =======
 
-
-Version 1.1.2 - UNRELEASED
---------------------------
-
-Enhancements:
-
-- (none)
-
-Bug fixes:
-
-- (none)
-
-
 Version 1.1.1 - Released 2009 January 2
 ---------------------------------------
 
