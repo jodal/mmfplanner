@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <jnlp
     spec="1.0+"
-    codebase="http://github.com/jodal/mmfplanner/raw/master/dist/"
+    codebase="https://github.com/jodal/mmfplanner/raw/master/dist/"
     href="mmfplanner.jnlp">
   <information>
     <title>MMF Planner</title>
