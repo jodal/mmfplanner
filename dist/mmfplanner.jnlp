@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+    spec="1.0+"
+    codebase="http://github.com/jodal/mmfplanner/raw/master/dist/"
+    href="mmfplanner.jnlp">
+  <information>
+    <title>MMF Planner</title>
+    <vendor>MMF Planner project</vendor>
+    <homepage href="http://github.com/jodal/mmfplanner/wiki"/>
+    <description>MMF Planner is a project planning tool for projects using the Incremental Funding Method (IFM).</description>
+    <offline-allowed/>
+  </information>
+  <security>
+     <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="mmfplanner-1.1.1.jar" main="true"/>
+    <jar href="piccolo-1.2.jar"/>
+    <jar href="piccolox-1.2.jar"/>
+    <jar href="xom-1.1.jar"/>
+    <jar href="jfreechart-1.0.7.jar"/>
+    <jar href="jcommon-1.0.12.jar"/>
+    <jar href="jaxen-1.1-beta-8.jar"/>
+  </resources>
+  <application-desc main-class="no.ntnu.mmfplanner.Main"/>
+</jnlp>

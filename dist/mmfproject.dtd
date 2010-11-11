@@ -1,0 +1,42 @@
+<!ELEMENT mmfproject (project+, settings?) >
+
+<!-- Project -->
+
+<!ELEMENT project (name, periods, interestrate, nextid, maxmmfs, categories, mmfs ) >
+<!ELEMENT name (#PCDATA) >
+<!ELEMENT periods (#PCDATA) >
+<!ELEMENT nextid (#PCDATA) >
+<!ELEMENT interestrate (#PCDATA) >
+<!ELEMENT maxmmfs (#PCDATA) >
+
+<!-- Settings -->
+
+<!ELEMENT settings (panels) >
+<!ELEMENT panels (panel+) >
+<!ELEMENT panel (visible, placement) >
+<!ATTLIST panel id NMTOKEN #REQUIRED >
+<!ELEMENT visible (#PCDATA) >
+<!ELEMENT placement (#PCDATA) >
+
+<!-- Category -->
+
+<!ELEMENT categories (category*) >
+<!ELEMENT category (name, color?, parent?) >
+<!ATTLIST category id NMTOKEN #REQUIRED >
+<!ELEMENT color (#PCDATA) >
+<!ELEMENT parent (#PCDATA) >
+
+<!-- MMF -->
+
+<!ELEMENT mmfs (mmf*) >
+<!ELEMENT mmf (name, period, locked, swimlane, category_ref, precursors, revenues) >
+<!ATTLIST mmf id NMTOKEN #REQUIRED >
+<!ELEMENT period (#PCDATA) >
+<!ELEMENT locked (#PCDATA) >
+<!ELEMENT swimlane (#PCDATA) >
+<!ELEMENT category_ref (#PCDATA) >
+<!ELEMENT precursors (#PCDATA) >
+
+<!ELEMENT revenues (revenue*) >
+<!ELEMENT revenue (period, value) >
+<!ELEMENT value (#PCDATA) >
