@@ -15,11 +15,11 @@
 		"url" is used for "codebase" in generated JNLP files, unless we
 		provide our own JNLP file template
 	-->
-	<url>http://mmfplanner.googlecode.com/svn/dist/</url>
+	<url>https://github.com/jodal/mmfplanner/raw/master/dist/</url>
 
 	<organization>
 		<name>MMF Planner project</name>
-		<url>http://code.google.com/p/mmfplanner</url>
+		<url>https://github.com/jodal/mmfplanner</url>
 	</organization>
 
 	<repositories>

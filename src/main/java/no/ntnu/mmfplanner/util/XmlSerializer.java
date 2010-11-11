@@ -187,7 +187,8 @@ public class XmlSerializer {
         Document doc = new Document(eprojects);
         // FIXME: should verify how to correctly validate the dtd on open, or
         // disable validation completely
-        // DocType doctype = new DocType("mmfproject", "http://mmfplanner.googlecode.com/svn/dist/mmfproject.dtd");
+        // DocType doctype = new DocType("mmfproject",
+        // "https://github.com/jodal/mmfplanner/raw/HEAD/dist/mmfproject.dtd");
         // doc.setDocType(doctype);
         return doc;
     }

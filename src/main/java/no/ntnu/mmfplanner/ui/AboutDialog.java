@@ -47,7 +47,7 @@ public class AboutDialog extends javax.swing.JDialog {
         setName("aboutDialog"); // NOI18N
 
         titleLabel
-                .setText("<html>\n<p>MMF Planner started as an idea at Iterate AS.\nIt was given as an assignment to the five students Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen, Erik Bagge Ottesen, and Ralf Bjarne Taraldset as a part of the Customer Driven Project at the Norwegian University of Science and Technology in the autumn of 2007.</p>\n<br>\n<p>The project is open source and available at <a href=\"http://mmfplanner.googlecode.com/\">http://mmfplanner.googlecode.com/</a></p>");
+                .setText("<html>\n<p>MMF Planner started as an idea at Iterate AS.\nIt was given as an assignment to the five students Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen, Erik Bagge Ottesen, and Ralf Bjarne Taraldset as a part of the Customer Driven Project at the Norwegian University of Science and Technology in the autumn of 2007.</p>\n<br>\n<p>The project is open source and available at <a href=\"https://github.com/jodal/mmfplanner\">https://github.com/jodal/mmfplanner</a></p>");
         titleLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         descLabel.setFont(new java.awt.Font("DejaVu Sans", 0, 24));

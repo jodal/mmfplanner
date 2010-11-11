@@ -70,7 +70,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="titleLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;p&gt;MMF Planner started as an idea at Iterate AS.&#xa;It was given as an assignment to the five students Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen, Erik Bagge Ottesen, and Ralf Bjarne Taraldset as a part of the Customer Driven Project at the Norwegian University of Science and Technology in the autumn of 2007.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&lt;p&gt;The project is open source and available at &lt;a href=&quot;http://mmfplanner.googlecode.com/&quot;&gt;http://mmfplanner.googlecode.com/&lt;/a&gt;&lt;/p&gt;"/>
+          <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;p&gt;MMF Planner started as an idea at Iterate AS.&#xa;It was given as an assignment to the five students Snorre Gylterud, Stein Magnus Jodal, Johannes Knutsen, Erik Bagge Ottesen, and Ralf Bjarne Taraldset as a part of the Customer Driven Project at the Norwegian University of Science and Technology in the autumn of 2007.&lt;/p&gt;&#xa;&lt;br&gt;&#xa;&lt;p&gt;The project is open source and available at &lt;a href=&quot;https://github.com/jodal/mmfplanner&quot;&gt;https://github.com/jodal/mmfplanner&lt;/a&gt;&lt;/p&gt;"/>
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>
     </Component>

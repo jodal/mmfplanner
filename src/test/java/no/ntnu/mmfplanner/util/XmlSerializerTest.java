@@ -156,7 +156,7 @@ public class XmlSerializerTest extends ProjectTestFixture {
     @Ignore("Doctype is not yet used in the serialization.")
     @Test
     public void testWriteProject() throws Exception {
-        String exp = "<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>\\s*<!DOCTYPE mmfproject SYSTEM \"http://mmfplanner.googlecode.com/svn/dist/mmfproject.dtd\">\\s*<mmfproject>\\s*<project>.+</project>\\s*<settings>.+</settings>\\s*</mmfproject>\\s*";
+        String exp = "<\\?xml version=\"1.0\" encoding=\"UTF-8\"\\?>\\s*<!DOCTYPE mmfproject SYSTEM \"https://github.com/jodal/mmfplanner/raw/HEAD/dist/mmfproject.dtd\">\\s*<mmfproject>\\s*<project>.+</project>\\s*<settings>.+</settings>\\s*</mmfproject>\\s*";
         Pattern pexp = Pattern.compile(exp, Pattern.DOTALL);
         int expSize = 3086;
 
