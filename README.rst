@@ -17,6 +17,17 @@ to the estimated investment and earnings. A MMF can also have a precursor which
 is a feature that has to be implemented before the actual MMF.
 
 
+Try it!
+=======
+
+If you got Java installed, you can launch MMF Planner using Java Web Start by
+opening `this file
+<https://github.com/jodal/mmfplanner/raw/HEAD/dist/mmfplanner.jnlp>`_.
+
+To start using MMF Planner, please check out our
+`user guide <https://github.com/jodal/mmfplanner/wiki/User-Guide>`_.
+
+
 Project history
 ===============
 
